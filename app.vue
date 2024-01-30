@@ -1,13 +1,19 @@
 <template>
-  <div>
-    {{ testStore.count }}
-    <v-btn @click="() => testStore.count = testStore.count + 1">Hello World!</v-btn>
-  </div>
+  <NuxtLayout />
 </template>
 
 
-<script lang="ts" setup>
-import { useTestStore } from './stores/TestStore';
 
-const testStore = useTestStore()
+<script lang="ts" setup>
 </script>
+
+<style>
+.text-transform-none {
+  text-transform: none;
+}
+
+body,
+html {
+  overflow: hidden;
+}
+</style>
