@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
     class="px-5"
-    flat
+    color="#f8fafc"
     density="compact"
   >
     <header-logo />

@@ -12,8 +12,8 @@
   text-transform: none;
 }
 
-body,
-html {
-  overflow: hidden;
+html,
+body {
+  background-color: #f1f5f9;
 }
 </style>

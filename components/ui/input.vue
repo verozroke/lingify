@@ -1,9 +1,19 @@
 <template>
-  <v-text-field :label="label" :placeholder="placeholder ?? undefined" :counter="counter ?? undefined" :clearable="true"
-    :rules="rules ?? []" :prepend-icon="prependIcon ?? null" :type="type" variant="outlined"></v-text-field>
+  <v-text-field
+    :label="label"
+    :placeholder="placeholder ?? undefined"
+    :counter="counter ?? undefined"
+    :clearable="true"
+    :rules="rules ?? []"
+    :prepend-icon="prependIcon ?? null"
+    :type="type"
+    v-model="model"
+    variant="outlined"
+  ></v-text-field>
 </template>
 
 <script setup lang="ts">
+const model = defineModel()
 
 defineProps<{
   label: string,
@@ -13,7 +23,6 @@ defineProps<{
   rules?: any[],
   counter?: number,
 }>()
-
 </script>
 
 <style scoped></style>

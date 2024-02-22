@@ -8,7 +8,25 @@
 </template>
 
 <script setup lang="ts">
+import {
+  useCookies
+} from '@vueuse/integrations/useCookies'
+import { onMounted } from 'vue'
+const router = useRouter()
+const userStore = useUserStore()
+const cookies = useCookies(['token'])
 
+onMounted(async () => {
+  if (userStore.isAuthenticated || cookies.get('token')) {
+    try {
+      await userStore.getUser()
+      router.push({ name: 'Profile' })
+      return
+    } catch (error) {
+      return
+    }
+  }
+})
 </script>
 
 <style scoped></style>

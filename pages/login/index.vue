@@ -8,14 +8,24 @@
 </template>
 
 <script setup lang="ts">
-import { useToast } from '~/hooks/use-toast';
+import {
+  useCookies
+} from '@vueuse/integrations/useCookies'
 import { onMounted } from 'vue'
+const router = useRouter()
+const userStore = useUserStore()
+const cookies = useCookies(['token'])
 
-
-const { toast } = useToast()
-
-onMounted(() => {
-  toast.success({ message: 'You have successfully mounted' })
+onMounted(async () => {
+  if (userStore.isAuthenticated || cookies.get('token')) {
+    try {
+      await userStore.getUser()
+      router.push('/profile')
+      return
+    } catch (error) {
+      return
+    }
+  }
 })
 </script>
 

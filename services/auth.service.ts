@@ -1,13 +1,14 @@
 import axios from "axios";
-import type { User } from "~/types/user";
+import type { User } from "~/core/types/user";
 
 export type LoginUserValidator = {
-  username: string
+  nickname: string
   password: string
 }
 
 export type RegisterUserValidator = {
-  username: string
+  email: string
+  nickname: string
   password: string
 }
 
@@ -31,19 +32,20 @@ class AuthService {
   }
 
   async register(body: RegisterUserValidator) {
-    const { data } = await axios.post(`${this.baseUrl}/auth/signup`, body, {
+    const { data: { message } } = await axios.post(`${this.baseUrl}/auth/signup`, body, {
       withCredentials: true,
       headers: {
         'Content-Type': 'application/json'
       }
     })
 
-    return data
+    return message
   }
 
   async fetchUser() {
     const { data } = await axios.get(`${this.baseUrl}/users/hash`, {
       withCredentials: true,
+
     })
 
     return data.user as User

@@ -6,19 +6,19 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@pinia/nuxt',
     '@nuxtjs/i18n',
+    '@vueuse/nuxt',
   ],
   alias: {
     "@": "/<rootDir>",
   },
   app: {
     head: {
-      title: 'Verozroke\'s blog',
+      title: 'Lingify',
       meta: [
         {
           name: "description",
           content: "I created this simple blog to practice in tailwind css and nuxt 3"
         },
-
       ]
     }
 

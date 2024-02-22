@@ -1,7 +1,7 @@
 <template>
   <v-app id="inspire">
     <Header />
-    <v-main class="bg-grey-lighten-3">
+    <v-main style="">
       <router-view />
     </v-main>
   </v-app>

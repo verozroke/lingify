@@ -1,0 +1,79 @@
+import { useToast } from "~/hooks/use-toast";
+
+export const debounce = (fn: Function, ms = 300) => {
+  let timeoutId: ReturnType<typeof setTimeout>;
+  return function (this: any, ...args: any[]) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn.apply(this, args), ms);
+  };
+};
+
+export const copyToureLink = (id: string) => {
+  const { toast } = useToast()
+  const link = `${window.origin}/toure/${id}`
+  navigator.clipboard.writeText(link);
+  toast.copied({ message: 'URL Copied successfully' })
+}
+
+
+export function isValidUrl(url: string) {
+  try {
+    new URL(url);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+export function isValidDateFormat(dateString: string) {
+  const dateFormatRegex = /^\d{4}-\d{2}-\d{2}$/;
+
+  if (!dateFormatRegex.test(dateString)) {
+    return false;
+  }
+
+  const [year, month, day] = dateString.split('-');
+  const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+
+  return (
+    date.getFullYear() === parseInt(year) &&
+
+    date.getMonth() + 1 === parseInt(month) &&
+    date.getDate() === parseInt(day)
+  );
+}
+
+export function formatDate(inputDate: Date) {
+  const date = new Date(inputDate);
+  const formattedDate = date.toLocaleDateString('en-US', {
+    month: 'long',
+    year: 'numeric'
+  });
+
+  const day = date.getDate();
+  let daySuffix;
+  if (day >= 11 && day <= 13) {
+    daySuffix = 'th';
+  } else {
+    switch (day % 10) {
+      case 1:
+        daySuffix = 'st';
+        break;
+      case 2:
+        daySuffix = 'nd';
+        break;
+      case 3:
+        daySuffix = 'rd';
+        break;
+      default:
+        daySuffix = 'th';
+    }
+  }
+
+  return `${day}${daySuffix}, ${formattedDate}`;
+}
+
+export const isEmail = (email: string): boolean => {
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(email);
+}
