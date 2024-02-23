@@ -1,4 +1,7 @@
+import type { CardSet } from './card-set'
+import type { Subscriber } from './community'
 import type { Country } from './country'
+import type { Course } from './course'
 import type { Image } from './image'
 
 export type User = {
@@ -12,4 +15,9 @@ export type User = {
   country: Country
   createdAt: Date
   updatedAt: Date
+
+
+  cardSets: CardSet[]
+  subscribers: Subscriber[]
+  courses: Course[]
 }

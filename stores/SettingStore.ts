@@ -62,7 +62,7 @@ export const useSettingStore = defineStore('SettingStore', () => {
       const message = await userService.changeName(userStore.user.id, payload)
       // on success
       userStore.user.nickname = nameInput.value
-      toast.success({ message })
+      toast.success({ message: message })
     } catch (error) {
       // on error
       toast.error({ message: 'Could not change your username' })

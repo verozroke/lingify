@@ -9,6 +9,7 @@ export const colors = {
   EMERALD: '#10b981',
   VIOLET: '#8b5cf6',
   BG_SLATE: '#f1f5f9',
+  SEAGREEN: '#00BFA5'
 }
 
 export enum colorsEnum {
@@ -22,4 +23,5 @@ export enum colorsEnum {
   EMERALD = '#10b981',
   VIOLET = '#8b5cf6',
   BG_SLATE = '#f1f5f9',
+  SEAGREEN = '#00BFA5'
 }

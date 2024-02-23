@@ -46,7 +46,6 @@
         </v-window-item>
       </v-window>
     </div>
-    <Footer />
   </div>
 </template>
 
