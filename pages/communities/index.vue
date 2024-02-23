@@ -7,7 +7,7 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt ex placeat modi magni quia error alias,
         adipisci rem similique, at omnis eligendi optio eos harum.
       </p>
-      <div class="flex items-center gap-4 w-fit">
+      <div class="flex flex-col items-start md:items-center gap-4 w-fit md:flex-row">
         <v-text-field
           label="Search"
           class="w-72"
@@ -27,7 +27,7 @@
         <UiButton
           prepend-icon="mdi-plus"
           mode="elevated"
-          :color="colors.EMERALD"
+          :color="colors.SEAGREEN"
           text-color="white"
           @click="openDialog"
         >Create community</UiButton>

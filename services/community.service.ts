@@ -33,6 +33,18 @@ class CommunityService {
     return data
   }
 
+
+  async getCommunity(id: string): Promise<Community> {
+    const { data } = await axios.get<Community>(`${this.baseUrl}/communities/${id}`, {
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    return data
+  }
+
   async createCommunity(body: CreateCommunityPayload): Promise<Community> {
     const { data } = await axios.post<Community>(`${this.baseUrl}/communities`, body, {
       withCredentials: true,

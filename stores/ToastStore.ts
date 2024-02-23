@@ -16,7 +16,7 @@ export const useToastStore = defineStore('ToastStore', () => {
     color.value = colorValue
     snackbar.value = true
 
-    setTimeout(() => setToDefault(), timeout.value + 4000)
+    setTimeout(() => setToDefault(), timeout.value)
   }
 
   const setToDefault = () => {

@@ -19,7 +19,6 @@ export type Community = {
   country: Country
   posts: Post[]
   subscribers: Subscriber[]
-
   createdAt: Date
   updatedAt: Date
 }
