@@ -17,9 +17,10 @@ export default defineNuxtConfig({
       meta: [
         {
           name: "description",
-          content: "I created this simple blog to practice in tailwind css and nuxt 3"
+          content: "Learn languages."
         },
-      ]
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     }
 
   },

@@ -144,7 +144,6 @@
         </div>
       </div>
     </section>
-    -
   </main>
 </template>
 
@@ -152,12 +151,13 @@
 import { colors } from '~/core/colors';
 
 const userStore = useUserStore()
+const formattedCreatedAt = computed(() => formatDate(userStore.user ? userStore.user.createdAt : new Date()))
+
 
 onMounted(async () => {
   await userStore.getUser()
 })
 
-const formattedCreatedAt = computed(() => formatDate(userStore.user ? userStore.user.createdAt : new Date()))
 
 
 </script>
