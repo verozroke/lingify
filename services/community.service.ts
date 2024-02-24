@@ -16,6 +16,7 @@ export type CreateCommunityPayload = {
   countryName: string
 }
 
+
 class CommunityService {
   baseUrl: string;
   constructor(baseUrl: string) {

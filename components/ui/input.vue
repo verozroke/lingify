@@ -9,6 +9,8 @@
     :type="type"
     v-model="model"
     variant="outlined"
+    :loading="loading"
+    :disabled="disabled"
   ></v-text-field>
 </template>
 
@@ -21,6 +23,8 @@ defineProps<{
   prependIcon?: string
   type: string
   rules?: any[],
+  disabled?: boolean
+  loading?: boolean
   counter?: number,
 }>()
 </script>

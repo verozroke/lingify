@@ -32,7 +32,7 @@ defineProps<{
   type?: string
   disabled?: boolean
   loading?: boolean
-  mode: 'elevated' | 'tonal' | 'outlined',
+  mode: 'elevated' | 'tonal' | 'outlined' | 'text',
 }>()
 
 </script>
