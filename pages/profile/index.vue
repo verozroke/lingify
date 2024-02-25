@@ -88,10 +88,7 @@
                       userStore.user?.cardSets.length }}</span>
                     <span class="text-sm text-blueGray-400">Наборы</span>
                   </div>
-                  <div class="mr-4 p-3 text-center">
-                    <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">{{
-                      userStore.user?.courses.length }}</span><span class="text-sm text-blueGray-400">Курсы</span>
-                  </div>
+
                   <div class="lg:mr-4 p-3 text-center">
                     <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">{{
                       userStore.user?.subscribers.length }}</span><span class="text-sm text-blueGray-400">Подписки</span>
