@@ -1,9 +1,6 @@
 
 <template>
-  <div
-    class="flex-shrink-0 m-6 relative overflow-hiddenrounded-lg max-w-xs shadow-lg"
-    :class="[`bg-${course.color}-500`]"
-  >
+  <div class="flex-shrink-0 m-6 relative overflow-hidden rounded-lg max-w-xs shadow-lg bg-orange-500">
     <svg
       class="absolute bottom-0 left-0 mb-8"
       viewBox="0 0 375 283"

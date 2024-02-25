@@ -20,6 +20,19 @@
         </v-card-text>
       </v-card>
     </v-bottom-sheet>
+    <LessonQuizDialog
+      :question-payload="{
+        courseName: course ? course.name : 'Русский',
+        keyWords: openedLesson ? openedLesson.keyWords : '',
+        lessonDescription: openedLesson ? openedLesson.description : '',
+        lessonName: openedLesson ? openedLesson.name : '',
+        userInfo: JSON.stringify({
+          nicname: userStore.user?.nickname
+        })
+
+      }"
+      v-model="dialog"
+    />
     <div class="container px-6 py-10 mx-auto">
       <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Курс языка "{{
         course?.name }}"</h1>
@@ -31,8 +44,7 @@
         <div
           v-for="(lesson, i) in course?.lessons"
           :key="lesson.id"
-          :class="[`bg-${LessonColorMap[i as keyof typeof LessonColorMap]}-500`]"
-          class="transform transition cursor-pointer hover:-translate-y-2 ml-10 relative flex items-center px-6 py-4  text-white rounded mb-10 flex-col md:flex-row space-y-4 md:space-y-0"
+          class="transform bg-seagreen transition cursor-pointer hover:-translate-y-2 ml-10 relative flex items-center px-6 py-4  text-white rounded mb-10 flex-col md:flex-row space-y-4 md:space-y-0"
         >
 
           <div class="w-5 h-5 bg-blue-600 absolute -left-10 transform -translate-x-2/4 rounded-full z-10 mt-2 md:mt-0">
@@ -56,6 +68,7 @@
               Материалы
             </UiButton>
             <UiButton
+              @click="() => openQuiz(lesson)"
               mode="elevated"
               color="#fff"
               prepend-icon="mdi-file-document-edit"
@@ -71,7 +84,7 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import { CourseMap, LessonColorMap, type Course, type Material } from '~/core/types/course';
+import { CourseMap, LessonColorMap, type Course, type Lesson, type Material } from '~/core/types/course';
 import { useToast } from '~/hooks/use-toast';
 import courseService from '~/services/course.service';
 
@@ -83,6 +96,7 @@ const { toast } = useToast()
 const course = ref<Course>()
 const materials = ref<Material[]>()
 const isLoading = ref(false)
+const openedLesson = ref<Lesson>()
 
 const fetchCourse = async () => {
   try {
@@ -103,6 +117,13 @@ onMounted(async () => {
 
 
 const sheet = ref(false)
+const dialog = ref(false)
+
+
+const openQuiz = async (lesson: Lesson) => {
+  dialog.value = true
+  openedLesson.value = lesson
+}
 
 </script>
 

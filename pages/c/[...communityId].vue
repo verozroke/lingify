@@ -68,7 +68,7 @@
                 </div>
               </div>
               <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
-                <div class="py-6 px-3 mt-32 sm:mt-0">
+                <div class="py-6 flex flex-col gap-2 px-3 mt-32 sm:mt-0">
                   <NuxtLink
                     v-if="userStore.user?.id === communityStore.community.ownerId"
                     :to="`/c/${communityStore.community.id}/settings`"
