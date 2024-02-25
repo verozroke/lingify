@@ -6,7 +6,7 @@
         FAQ
       </h2>
       <p class="text-neutral-500 text-xl mt-3">
-        Frequenty asked questions
+        Часто задаваемые вопросы
       </p>
     </div>
     <div class="grid divide-y divide-neutral-200 max-w-xl mx-auto mt-8">
@@ -256,7 +256,12 @@
 </template>
 
 <script setup lang="ts">
+const userStore = useUserStore()
 
+
+onMounted(async () => {
+  await userStore.getUser()
+})
 </script>
 
 <style scoped></style>

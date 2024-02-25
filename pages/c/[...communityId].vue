@@ -79,7 +79,7 @@
                       textColor="white"
                       prependIcon="mdi-pencil"
                     >
-                      Edit community
+                      Редактировать
                     </UiButton>
                   </NuxtLink>
                   <CommunitySubscribeButton
@@ -93,18 +93,18 @@
                   <div class="mr-4 p-3 text-center">
                     <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">{{
                       likesAmount }}</span>
-                    <span class="text-sm text-blueGray-400">Likes</span>
+                    <span class="text-sm text-blueGray-400">Лайки</span>
                   </div>
                   <div class="mr-4 p-3 text-center">
                     <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">{{
                       communityStore.community.posts ? communityStore.community.posts.length : 0 }}</span><span
                       class="text-sm text-blueGray-400"
-                    >Posts</span>
+                    >Посты</span>
                   </div>
                   <div class="lg:mr-4 p-3 text-center">
                     <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">{{
                       communityStore.community.subscribers ? communityStore.community.subscribers.length : 0
-                    }}</span><span class="text-sm text-blueGray-400">Subscribers</span>
+                    }}</span><span class="text-sm text-blueGray-400">Подписчики</span>
                   </div>
                 </div>
               </div>
@@ -115,25 +115,25 @@
               </h3>
               <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold">
                 <v-icon>mdi-account</v-icon>
-                Author: {{ communityStore.community.owner ? communityStore.community.owner.nickname : 'Owner name' }}
+                Автор: {{ communityStore.community.owner ? communityStore.community.owner.nickname : 'Owner name' }}
               </div>
               <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold">
                 <v-icon>mdi-map-marker-radius</v-icon>
-                Country: {{ communityStore.community.country ? communityStore.community.country.name : 'Community country'
+                Страна: {{ communityStore.community.country ? communityStore.community.country.name : 'Community country'
                 }}
               </div>
               <div class="mb-2 text-blueGray-600 mt-10">
                 <v-icon>mdi-translate</v-icon>
-                Language: {{ communityStore.community.language }}
+                Язык: {{ communityStore.community.language }}
               </div>
               <div class="mb-2 text-blueGray-600">
                 <v-icon>mdi-clock-time-eight</v-icon>
-                Community created in: {{ formattedCreatedAt }}
+                Сообщество создано: {{ formattedCreatedAt }}
               </div>
             </div>
             <div class="mt-10 py-10 border-t border-blueGray-200">
               <div class="text-xl leading-normal mt-0 mb-2 text-blueGray-700 font-bold">
-                Description
+                Описание
               </div>
               <div class="flex flex-wrap ">
                 <div class="w-full lg:w-9/12 ">
@@ -150,7 +150,7 @@
                   <div class="flex flex-col gap-2 justify-center">
                     <CommunityPostCreateDialog v-model="dialog" />
                     <div class="text-xl leading-normal mt-0 mb-2 text-blueGray-700 font-bold">
-                      Posts
+                      Посты
                     </div>
                     <UiButton
                       class="w-fit"
@@ -159,7 +159,7 @@
                       :color="colors.SEAGREEN"
                       text-color="white"
                       @click="openDialog"
-                    >Create post</UiButton>
+                    >Создать пост</UiButton>
                   </div>
                   <div class="w-full flex flex-col gap-3 py-5">
                     <CommunityPost

@@ -24,7 +24,7 @@
           <v-list-item-title
             @click="() => router.push(`/profile`)"
             class="flex text-oxford items-center gap-2 py-2 pl-1 pr-10"
-          ><v-icon size="20">mdi-account</v-icon>Profile</v-list-item-title>
+          ><v-icon size="20">mdi-account</v-icon>Профиль</v-list-item-title>
         </v-list-item>
         <v-list-item
           density="compact"
@@ -34,7 +34,7 @@
           <v-list-item-title
             @click="() => router.push('/settings')"
             class="flex text-oxford items-center gap-2 py-2 pl-1 pr-10"
-          ><v-icon size="20">mdi-cog</v-icon>Settings</v-list-item-title>
+          ><v-icon size="20">mdi-cog</v-icon>Настройки</v-list-item-title>
         </v-list-item>
         <div class="flex bg-slate-300 h-[1px] rounded-full w-full"></div>
         <v-list-item
@@ -45,7 +45,7 @@
         >
           <v-list-item-title class="flex text-seagreen items-center gap-2 py-2 pl-1 pr-10">
             <v-icon size="20">mdi-logout</v-icon>
-            Sign out
+            Выход
           </v-list-item-title>
         </v-list-item>
       </v-list>

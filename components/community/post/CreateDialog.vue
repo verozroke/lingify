@@ -8,7 +8,7 @@
       style="padding: 16px;"
     >
       <v-card-title>
-        Create Post
+        Создать пост
       </v-card-title>
       <v-form
         @submit="createPost"
@@ -18,30 +18,30 @@
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label='title'
+          label='Заголовок'
           v-model="inputs.title"
           :rules="rules.title"
-          placeholder="enter post title."
+          placeholder="Введите заголовок."
           type="text"
         />
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label='text'
+          label='Текст'
           v-model="inputs.text"
           :rules="rules.text"
-          placeholder="enter text."
+          placeholder="Напишите текст."
           type="text"
         />
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label='image URL (optional)'
+          label='URL Картинки (необязательно)'
           v-model="inputs.imageUrl"
           :rules="rules.imageUrl"
-          placeholder="enter image URL."
+          placeholder="Введите URL Картинки."
           type="text"
         />
       </v-form>
@@ -55,7 +55,7 @@
           :color="colors.EMERALD"
           text-color="white"
           prepend-icon="mdi-note-plus"
-        >Create</UiButton>
+        >Создать</UiButton>
         <UiButton
           :disable="isLoading"
           :loading="isLoading"
@@ -64,7 +64,7 @@
           mode="tonal"
           color="red"
           prepend-icon="mdi-close"
-        >Close</UiButton>
+        >Закрыть</UiButton>
       </v-card-actions>
     </v-card>
   </v-dialog>

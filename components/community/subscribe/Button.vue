@@ -6,7 +6,7 @@
     :text-color="isSubscriberRef ? colors.SEAGREEN : colors.BG_SLATE"
     :prepend-icon="isSubscriberRef ? 'mdi-account-minus' : 'mdi-account-plus'"
   >
-    {{ isSubscriberRef ? 'Unsubscribe' : 'Subscribe' }}
+    {{ isSubscriberRef ? 'Отписаться' : 'Подписаться' }}
   </UiButton>
 </template>
 

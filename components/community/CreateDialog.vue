@@ -8,7 +8,7 @@
       style="padding: 16px;"
     >
       <v-card-title>
-        Create community
+        Создать сообщество
       </v-card-title>
       <v-form
         @submit="createCommunity"
@@ -18,54 +18,54 @@
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label='name'
+          label='Название'
           v-model="inputs.name"
           :rules="rules.name"
-          placeholder="enter name."
+          placeholder="Введите название."
           type="text"
         />
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label='language'
+          label='Язык'
           v-model="inputs.language"
           :rules="rules.language"
-          placeholder="enter language."
+          placeholder="Введите язык."
           type="text"
         />
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label='description'
+          label='Описание'
           v-model="inputs.description"
           :rules="rules.description"
-          placeholder="enter description."
+          placeholder="Напишите описание."
           type="text"
         />
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label='avatar URL'
+          label='URL Аватарки'
           v-model="inputs.avatarUrl"
           :rules="rules.avatarUrl"
-          placeholder="enter avatar URL."
+          placeholder="Введите URL аватарки."
           type="text"
         />
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label='banner URL'
+          label='URL Баннера'
           v-model="inputs.bannerUrl"
           :rules="rules.bannerUrl"
-          placeholder="enter banner URL."
+          placeholder="Введите URL баннера."
           type="text"
         />
         <v-select
-          label="сountry"
+          label="Страна"
           v-model="inputs.country"
           :items="countries"
           variant="outlined"
@@ -82,7 +82,7 @@
           :color="colors.EMERALD"
           text-color="white"
           prepend-icon="mdi-account-multiple-plus"
-        >Create</UiButton>
+        >Создать</UiButton>
         <UiButton
           :disable="isLoading"
           :loading="isLoading"
@@ -91,7 +91,7 @@
           mode="tonal"
           color="red"
           prepend-icon="mdi-close"
-        >Close</UiButton>
+        >Закрыть</UiButton>
       </v-card-actions>
     </v-card>
   </v-dialog>

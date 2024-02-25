@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col pb-4 w-full">
-    <div class="text-2xl font-bold w-full leading-10 text-oxford">Account Settings</div>
+    <div class="text-2xl font-bold w-full leading-10 text-oxford">Настройки учетной записи</div>
     <div class="text-sm font-medium w-full leading-5 text-slate-500">Lorem ipsum dolor sit amet consectetur,
       adipisicing
       elit. Commodi maxime deserunt doloremque unde enim quaerat!</div>
@@ -14,7 +14,7 @@
         />
       </div>
       <div class="flex flex-col">
-        <div class="text-xl font-bold w-full leading-10 text-oxford">Your avatar</div>
+        <div class="text-xl font-bold w-full leading-10 text-oxford">Ваш аватар</div>
         <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">Lorem ipsum dolor sit amet consectetur
           adipisicing elit.</div>
         <v-text-field
@@ -32,19 +32,19 @@
           style="width: fit-content; text-transform: none;"
           class="px-4 mt-2 text-white"
           color="#28B0A6"
-        >Save</v-btn>
+        >Сохранить</v-btn>
       </div>
     </div>
     <div class="flex gap-10 mt-10">
       <div class="flex flex-col">
-        <div class="text-xl font-bold w-full leading-10 text-oxford">Username</div>
+        <div class="text-xl font-bold w-full leading-10 text-oxford">Никнейм</div>
         <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">Lorem ipsum dolor sit amet consectetur
           adipisicing elit.</div>
         <v-text-field
           :rules="nameRules"
-          placeholder="Enter the username"
+          placeholder="Напишите никнейм"
           clearable
-          label="Username"
+          label="Никнейм"
           v-model="settingStore.nameInput"
           class="mt-5"
           prepend-inner-icon="mdi-account-edit"
@@ -55,7 +55,7 @@
           style="width: fit-content; text-transform: none;"
           class="px-4 mt-2 text-white"
           color="#28B0A6"
-        >Save</v-btn>
+        >Сохранить</v-btn>
       </div>
       <div class="flex flex-col">
         <div class="text-xl font-bold w-full leading-10 text-oxford">Email</div>
@@ -63,7 +63,7 @@
           adipisicing elit.</div>
         <v-text-field
           :rules="emailRules"
-          placeholder="Enter the email"
+          placeholder="Напишите ваш email"
           clearable
           label="Email"
           v-model="settingStore.emailInput"
@@ -76,17 +76,17 @@
           style="width: fit-content; text-transform: none;"
           class="px-4 mt-2 text-white"
           color="#28B0A6"
-        >Save</v-btn>
+        >Сохранить</v-btn>
       </div>
     </div>
-    <div class="text-2xl font-bold w-full leading-10 text-oxford mt-10">Change Password</div>
+    <div class="text-2xl font-bold w-full leading-10 text-oxford mt-10">Смена пароля</div>
     <div class="text-sm font-medium w-full leading-5 text-slate-500">Lorem ipsum dolor sit amet consectetur,
       adipisicing
       elit. Commodi maxime deserunt doloremque unde enim quaerat!</div>
     <div class="flex bg-slate-300 my-4 h-[1px] rounded-full w-full"></div>
     <div class="flex flex-wrap gap-10">
       <div class="flex flex-col">
-        <div class="text-xl font-bold w-full leading-10 text-oxford">Old Password</div>
+        <div class="text-xl font-bold w-full leading-10 text-oxford">Старый пароль</div>
         <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">Lorem ipsum dolor sit amet consectetur
           adipisicing elit.</div>
         <v-text-field
@@ -94,10 +94,10 @@
           :rules="passwordRules"
           density="compact"
           style="width: 350px;"
-          placeholder="Enter your old password"
+          placeholder="Напишите ваш старый пароль"
           type="password"
           clearable
-          label="Old Password"
+          label="Старый пароль"
           v-model="settingStore.oldPasswordInput"
           class="mt-5 w-full"
           prepend-inner-icon="mdi-lock-question"
@@ -105,7 +105,7 @@
         ></v-text-field>
       </div>
       <div class="flex flex-col">
-        <div class="text-xl font-bold w-full leading-10 text-oxford">New Password</div>
+        <div class="text-xl font-bold w-full leading-10 text-oxford">Новый пароль</div>
         <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">Lorem ipsum dolor sit amet consectetur
           adipisicing elit.</div>
         <v-text-field
@@ -113,43 +113,44 @@
           :rules="passwordRules"
           density="compact"
           style="width: 350px;"
-        placeholder="Enter your new password"
-        type="password"
-        clearable
-        label="New Password"
-        v-model="settingStore.newPasswordInput"
-        class="mt-5 w-full"
-        prepend-inner-icon="mdi-lock"
-        variant="outlined"
-      ></v-text-field>
+          placeholder="Напишите ваш новый пароль"
+          type="password"
+          clearable
+          label="Новый пароль"
+          v-model="settingStore.newPasswordInput"
+          class="mt-5 w-full"
+          prepend-inner-icon="mdi-lock"
+          variant="outlined"
+        ></v-text-field>
+      </div>
+      <div class="flex flex-col">
+        <div class="text-xl font-bold w-full leading-10 text-oxford">Подтверждение пароля</div>
+        <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">Lorem ipsum dolor sit amet consectetur
+          adipisicing elit.</div>
+        <v-text-field
+          :counter="20"
+          :rules="passwordRules"
+          density="compact"
+          style="width: 350px;"
+          placeholder="Повторите ваш новый пароль"
+          type="password"
+          clearable
+          label="Подтверждение пароля"
+          v-model="settingStore.newPasswordRepeatInput"
+          class="mt-5 w-full"
+          prepend-inner-icon="mdi-lock-check"
+          variant="outlined"
+        ></v-text-field>
+      </div>
     </div>
-    <div class="flex flex-col">
-      <div class="text-xl font-bold w-full leading-10 text-oxford">Password Confirmation</div>
-      <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">Lorem ipsum dolor sit amet consectetur
-        adipisicing elit.</div>
-      <v-text-field
-        :counter="20"
-        :rules="passwordRules"
-        density="compact"
-        style="width: 350px;"
-        placeholder="Repeat your new password"
-        type="password"
-        clearable
-        label="Password Confirmation"
-        v-model="settingStore.newPasswordRepeatInput"
-        class="mt-5 w-full"
-        prepend-inner-icon="mdi-lock-check"
-        variant="outlined"
-      ></v-text-field>
-    </div>
+    <v-btn
+      @click="async () => await settingStore.savePassword()"
+      style="width: fit-content; text-transform: none;"
+      class="px-4 mt-2 text-white"
+      color="#28B0A6"
+    >Сменить пароль</v-btn>
   </div>
-  <v-btn
-    @click="async () => await settingStore.savePassword()"
-    style="width: fit-content; text-transform: none;"
-    class="px-4 mt-2 text-white"
-    color="#28B0A6"
-  >Change Password</v-btn>
-</div></template>
+</template>
 
 <script setup lang="ts">
 import { useSettingStore } from '~/stores/SettingStore';

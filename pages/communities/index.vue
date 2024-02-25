@@ -2,20 +2,19 @@
   <section class="bg-slate-50 min-h-screen">
     <CommunityCreateDialog v-model="dialog" />
     <div class="container px-6 py-10 mx-auto">
-      <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Communities</h1>
+      <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Сообщества</h1>
       <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt ex placeat modi magni quia error alias,
-        adipisci rem similique, at omnis eligendi optio eos harum.
+        Здесь вы найдете много сообществ с которыми вы можете разделить свое изучение разных языков
       </p>
       <div class="flex flex-col items-start md:items-center gap-4 w-fit md:flex-row">
         <v-text-field
-          label="Search"
+          label="Поиск"
           class="w-72"
           density="compact"
           v-model="query"
           @update:model-value="search"
           style="font-size: 24px; !important"
-          placeholder="Type community name"
+          placeholder="Напишите название сообщества"
           color="#28B0A6"
           :counter="128"
           hide-details
@@ -30,7 +29,7 @@
           :color="colors.SEAGREEN"
           text-color="white"
           @click="openDialog"
-        >Create community</UiButton>
+        >Создать сообщество</UiButton>
       </div>
       <LoaderSpinner v-if="isLoading" />
       <template v-else>
@@ -46,7 +45,7 @@
         >
           <v-icon size="200">mdi-emoticon-sad-outline</v-icon>
           <div class="text-center ">
-            There is no communities yet.
+            Пока что нету сообществ.
           </div>
         </div>
       </template>
