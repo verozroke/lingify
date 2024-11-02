@@ -1,21 +1,26 @@
 <template>
   <section class="bg-slate-50 min-h-screen">
+    <CourseMaterialDialog
+      v-model="materialDialog"
+      :material
+    />
     <v-bottom-sheet v-model="sheet">
       <v-card
         class="text-center"
-        height="200"
+        height="500"
       >
         <v-card-text>
           <br>
           <h1 class="text-lg　font-bold">Материалы: </h1>
           <br>
-          <div class="flex flex-col gap-4">
-            <a
+          <div class="flex flex-col gap-6">
+            <span
+              @click="openMaterial(material)"
               v-for="material in materials"
               :key="material.id"
-              :href="material.url"
-              class="text-blue-500 underline"
-            >{{ material.name }}</a>
+              :href="material.description"
+              class="text-xl w-fit text-center mx-auto hover:text-oxford font-bold leading-4 text-oxford/70 transition-all cursor-pointer"
+            >{{ material.name }}</span>
           </div>
         </v-card-text>
       </v-card>
@@ -27,17 +32,17 @@
         lessonDescription: openedLesson ? openedLesson.description : '',
         lessonName: openedLesson ? openedLesson.name : '',
         userInfo: JSON.stringify({
-          nicname: userStore.user?.nickname
-        })
-
+          nickname: userStore.user?.nickname
+        }),
+        nativeLanguage: course ? course.nativeLanguage : ''
       }"
       v-model="dialog"
     />
     <div class="container px-6 py-10 mx-auto">
-      <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Курс языка "{{
+      <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl ">Курс языка "{{
         course?.name }}"</h1>
 
-      <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
+      <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 ">
         Проходите курс по списку!
       </p>
       <div class="border-l-2 mt-10">
@@ -84,7 +89,7 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import { CourseMap, LessonColorMap, type Course, type Lesson, type Material } from '~/core/types/course';
+import { type Course, type Lesson, type Material } from '~/core/types/course';
 import { useToast } from '~/hooks/use-toast';
 import courseService from '~/services/course.service';
 
@@ -95,13 +100,20 @@ const { toast } = useToast()
 
 const course = ref<Course>()
 const materials = ref<Material[]>()
+const material = ref<Material | null>(null)
 const isLoading = ref(false)
 const openedLesson = ref<Lesson>()
+
+
+const openMaterial = (currentMaterial: Material) => {
+  material.value = currentMaterial
+  materialDialog.value = true
+}
 
 const fetchCourse = async () => {
   try {
     isLoading.value = true
-    const fetchedCourse = await courseService.getCourse(CourseMap[route.params.courseName[0] as keyof typeof CourseMap] as string)
+    const fetchedCourse = await courseService.getCourse(route.params.courseId[0] as string)
     course.value = fetchedCourse
     isLoading.value = false
   } catch (error) {
@@ -118,6 +130,7 @@ onMounted(async () => {
 
 const sheet = ref(false)
 const dialog = ref(false)
+const materialDialog = ref(false)
 
 
 const openQuiz = async (lesson: Lesson) => {

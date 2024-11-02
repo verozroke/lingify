@@ -10,11 +10,11 @@
       alt="Community Avatar"
     >
 
-    <h1 class="mt-4 text-2xl font-semibold text-slate-700 capitalize dark:text-white ">{{
+    <h1 class="mt-4 text-2xl font-semibold text-slate-700 capitalize  ">{{
       community.name }}</h1>
 
-    <p class="mt-2 text-slate-500 capitalize dark:text-slate-300 ">язык: {{ community.language
-    }}</p>
+    <p class="mt-2 text-slate-500 capitalize  ">язык: {{ community.language
+      }}</p>
 
     <div class="flex mt-3 gap-2 -mx-2 items-center">
 

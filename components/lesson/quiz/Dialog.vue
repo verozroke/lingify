@@ -12,29 +12,33 @@
       </v-card-title>
       <v-form
         @submit="checkQuiz"
-        class="p-4 flex flex-col gap-2"
+        class="p-4 flex flex-col gap-2 relative"
       >
-        <LoaderSpinner v-if="isLoading" />
-        <template v-else>
-          <div
-            class="flex flex-col gap-2"
-            v-for="(question, i) in questions"
-            :key="question.question"
-          >
-            <p>{{ i + 1 }}. {{ question.question }}</p>
-            <v-radio-group v-model="question.selectedVariant">
-              <v-radio
-                :color="colors.SEAGREEN"
-                v-for="variant in question.variants"
-                :label="variant.letter + '. ' + variant.answer"
-                :value="variant.letter"
-              ></v-radio>
-            </v-radio-group>
-          </div>
-        </template>
+        <LoaderSpinner
+          style="position:static"
+          v-if="isLoading"
+        />
+        <div
+          class="flex flex-col gap-2"
+          v-for="(question, i) in questions"
+          :key="question.question"
+        >
+          <p>{{ i + 1 }}. {{ question.question }}</p>
+          <v-radio-group v-model="question.selectedVariant">
+            <v-radio
+              :color="colors.SEAGREEN"
+              v-for="variant in question.variants"
+              :label="variant.letter + '. ' + variant.answer"
+              :value="variant.letter"
+            ></v-radio>
+          </v-radio-group>
+        </div>
       </v-form>
       <v-card-actions class="justify-end">
-        <div v-if="quizResult">Результат: {{ quizResult }}</div>
+        <div
+          class="text-oxford text-lg leading-3 mx-4 font-medium"
+          v-if="quizResult"
+        >Результат: {{ quizResult }}</div>
         <UiButton
           :disable="isLoading"
           :loading="isLoading"
@@ -44,7 +48,7 @@
           :color="colors.EMERALD"
           text-color="white"
           prepend-icon="mdi-check-all"
-        >Проверить результаты</UiButton>
+        >Check results</UiButton>
         <UiButton
           :disable="isLoading"
           :loading="isLoading"
@@ -53,7 +57,7 @@
           mode="tonal"
           color="red"
           prepend-icon="mdi-close"
-        >Закрыть</UiButton>
+        >Close</UiButton>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -81,17 +85,22 @@ const props = defineProps<{
 }>()
 const fetchQuiz = async () => {
   try {
+    isLoading.value = true
     const fetchedQuestions: Question[] = await chatGPTService.getQuestions(props.questionPayload)
     questions.value = fetchedQuestions
-
+    isLoading.value = false
   } catch (error) {
+    isLoading.value = false
     toast.success({ message: 'Could not fetch questions.' })
   }
 }
 
 watch(dialog, async () => {
-  if (dialog) {
+  if (dialog.value) {
     await fetchQuiz()
+  } else {
+    quizResult.value = ''
+    questions.value = []
   }
 })
 
@@ -101,7 +110,7 @@ const checkQuiz = async () => {
     return
   }
   const correctAnswerLength = questions.value.reduce((acc, question) => acc + (question.correctAnswer === question.selectedVariant ? 1 : 0), 0)
-  quizResult.value = `правильных ${correctAnswerLength} из 5`
+  quizResult.value = `${correctAnswerLength}/5`
 }
 
 

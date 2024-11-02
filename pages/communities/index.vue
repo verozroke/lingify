@@ -2,8 +2,8 @@
   <section class="bg-slate-50 min-h-screen">
     <CommunityCreateDialog v-model="dialog" />
     <div class="container px-6 py-10 mx-auto">
-      <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Сообщества</h1>
-      <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
+      <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl">Сообщества</h1>
+      <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 ">
         Здесь вы найдете много сообществ с которыми вы можете разделить свое изучение разных языков
       </p>
       <div class="flex flex-col items-start md:items-center gap-4 w-fit md:flex-row">
@@ -13,7 +13,7 @@
           density="compact"
           v-model="query"
           @update:model-value="search"
-          style="font-size: 24px; !important"
+          style="font-size: 24px !important;"
           placeholder="Напишите название сообщества"
           color="#28B0A6"
           :counter="128"

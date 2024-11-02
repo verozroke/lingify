@@ -19,6 +19,7 @@ export type GetQuestionsPayload = {
   keyWords: string
   courseName: string
   userInfo: string
+  nativeLanguage: string
 }
 
 class ChatGPTService {
@@ -29,14 +30,14 @@ class ChatGPTService {
 
 
   async getQuestions(body: GetQuestionsPayload): Promise<Question[]> {
-    const { data } = await axios.post<string>(`${this.baseUrl}/chat-completion-api`, body, {
+    const { data } = await axios.post<Question[]>(`${this.baseUrl}/chat-completion-api`, body, {
       withCredentials: true,
       headers: {
         'Content-Type': 'application/json'
       }
     })
 
-    return JSON.parse(data)
+    return data
   }
 }
 

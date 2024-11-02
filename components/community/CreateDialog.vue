@@ -158,7 +158,7 @@ const createCommunity = async () => {
     router.push(`/c/${id}`)
     isLoading.value = false
   } catch (error) {
-    toast.success({ message: 'Could not create community.' })
+    toast.error({ message: 'Could not create community.' })
     isLoading.value = false
   }
 }

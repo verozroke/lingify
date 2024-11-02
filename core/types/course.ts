@@ -4,6 +4,7 @@ export type Course = {
   name: string
   description: string
   avatarId: string
+  nativeLanguage: string
   avatar: Image
   lessons: Lesson[]
   createdAt: Date
@@ -27,16 +28,13 @@ export type Lesson = {
 export type Material = {
   id: string
   name: string
-  url: string
+  description: string
   lessonId: string
   lesson: Lesson
   createdAt: Date
   updatedAt: Date
 }
 
-export const CourseMap = {
-  'russian': 'Русский'
-} as const
 
 export const LessonColorMap = {
   0: 'orange',

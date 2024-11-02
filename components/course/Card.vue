@@ -1,6 +1,5 @@
-
 <template>
-  <div class="flex-shrink-0 m-6 relative overflow-hidden rounded-lg max-w-xs shadow-lg bg-orange-500">
+  <div class="flex-shrink-0 m-6 relative overflow-hidden rounded-lg max-w-xs shadow-lg bg-seagreen">
     <svg
       class="absolute bottom-0 left-0 mb-8"
       viewBox="0 0 375 283"
@@ -31,8 +30,8 @@
         style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"
       ></div>
       <img
-        class="relative w-40"
-        :src="course.logoImageUrl"
+        class="relative w-40 h-28 rounded-lg object-cover"
+        :src="course.avatar.url"
         alt=""
       >
     </div>
@@ -41,7 +40,7 @@
       <div class="flex justify-between items-center">
         <span class="block font-semibold text-xl">{{ course.name }}</span>
         <UiButton
-          @click="router.push(`/courses/${course.url}`)"
+          @click="router.push(`/courses/${course.id}`)"
           mode="elevated"
           color="white"
           icon
@@ -54,16 +53,12 @@
 </template>
 
 <script setup lang="ts">
+import type { Course } from '~/core/types/course';
+
 
 const router = useRouter()
 defineProps<{
-  course: {
-    id: number
-    name: string
-    url: string
-    color: string
-    logoImageUrl: string
-  }
+  course: Course
 }>()
 </script>
 

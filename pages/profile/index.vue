@@ -136,6 +136,12 @@
                 <div class="text-lg leading-normal mt-0 mb-2 text-blueGray-700 font-bold">
                   Наборы карточек
                 </div>
+                <UiButton
+                  color="#0088cc"
+                  text-color="#fff"
+                  mode="elevated"
+                  append-icon="mdi-chevron-right"
+                >Перейти в telegram</UiButton>
               </div>
             </div>
           </div>

@@ -28,7 +28,7 @@ class AuthService {
       }
     })
 
-    return data
+    return data.message
   }
 
   async register(body: RegisterUserValidator) {
