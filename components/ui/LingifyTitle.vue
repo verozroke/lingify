@@ -9,8 +9,8 @@
 
 <script setup lang="ts">
 defineProps<{
-  size: number
-}>()
+  size: number;
+}>();
 </script>
 
 <style scoped>

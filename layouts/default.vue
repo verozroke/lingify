@@ -9,9 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import ToastProvider from '~/providers/ToastProvider.vue';
-
-
+import ToastProvider from "~/providers/ToastProvider.vue";
 </script>
 
 <style scoped></style>

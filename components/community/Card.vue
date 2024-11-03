@@ -8,16 +8,15 @@
       class="object-cover w-32 h-32 rounded-full ring-4 ring-slate-300"
       :src="community.avatar.url"
       alt="Community Avatar"
-    >
+    />
 
-    <h1 class="mt-4 text-2xl font-semibold text-slate-700 capitalize  ">{{
-      community.name }}</h1>
+    <h1 class="mt-4 text-2xl font-semibold text-slate-700 capitalize">
+      {{ community.name }}
+    </h1>
 
-    <p class="mt-2 text-slate-500 capitalize  ">язык: {{ community.language
-      }}</p>
+    <p class="mt-2 text-slate-500 capitalize">язык: {{ community.language }}</p>
 
     <div class="flex mt-3 gap-2 -mx-2 items-center">
-
       <SubscribeButton
         :community-id="community.id"
         :is-subscriber="isSubscriber(community.subscribers)"
@@ -26,7 +25,7 @@
         <UiButton
           density="comfortable"
           mode="elevated"
-          style="border-radius: 5px;"
+          style="border-radius: 5px"
           :text-color="colors.SEAGREEN"
           :icon="true"
           :color="colors.BG_SLATE"
@@ -39,19 +38,18 @@
 </template>
 
 <script setup lang="ts">
-import { colors } from '~/core/colors';
-import type { Community, Subscriber } from '~/core/types/community'
+import { colors } from "~/core/colors";
+import type { Community, Subscriber } from "~/core/types/community";
 
-
-const router = useRouter()
-const userStore = useUserStore()
+const router = useRouter();
+const userStore = useUserStore();
 
 defineProps<{
-  community: Community
-}>()
+  community: Community;
+}>();
 
-const isSubscriber = (subscribers: Subscriber[]) => !!subscribers.find(s => s.userId === userStore.user?.id)
-
+const isSubscriber = (subscribers: Subscriber[]) =>
+  !!subscribers.find((s) => s.userId === userStore.user?.id);
 </script>
 
 <style scoped></style>

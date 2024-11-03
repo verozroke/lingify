@@ -1,9 +1,9 @@
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
 
-export const usePostStore = defineStore('PostStore', () => {
-  const commentInput = ref('')
+export const usePostStore = defineStore("PostStore", () => {
+  const commentInput = ref("");
 
   return {
-    commentInput
-  }
-})
+    commentInput,
+  };
+});

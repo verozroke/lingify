@@ -1,10 +1,12 @@
 <template>
-  <div class="flex-shrink-0 m-6 relative overflow-hidden rounded-lg max-w-xs shadow-lg bg-seagreen">
+  <div
+    class="flex-shrink-0 m-6 relative overflow-hidden rounded-lg max-w-xs shadow-lg bg-seagreen"
+  >
     <svg
       class="absolute bottom-0 left-0 mb-8"
       viewBox="0 0 375 283"
       fill="none"
-      style="transform: scale(1.5); opacity: 0.1;"
+      style="transform: scale(1.5); opacity: 0.1"
     >
       <rect
         x="159.52"
@@ -27,13 +29,17 @@
     <div class="relative pt-10 px-10 flex items-center justify-center">
       <div
         class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
-        style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"
+        style="
+          background: radial-gradient(black, transparent 60%);
+          transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1);
+          opacity: 0.2;
+        "
       ></div>
       <img
         class="relative w-40 h-28 rounded-lg object-cover"
         :src="course.avatar.url"
         alt=""
-      >
+      />
     </div>
     <div class="relative text-white px-6 pb-6 mt-6">
       <span class="block opacity-75 -mb-1">Курс</span>
@@ -53,13 +59,12 @@
 </template>
 
 <script setup lang="ts">
-import type { Course } from '~/core/types/course';
+import type { Course } from "~/core/types/course";
 
-
-const router = useRouter()
+const router = useRouter();
 defineProps<{
-  course: Course
-}>()
+  course: Course;
+}>();
 </script>
 
 <style scoped></style>

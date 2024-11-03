@@ -19,7 +19,8 @@
         :color="colors.SEAGREEN"
         mode="elevated"
         prepend-icon="mdi-comment-plus"
-      >Comment</UiButton>
+        >Comment</UiButton
+      >
     </div>
     <div class="flex flex-col">
       <CommunityPostComment
@@ -33,53 +34,49 @@
 </template>
 
 <script setup lang="ts">
-import { colors } from '~/core/colors';
-import type { Comment } from '~/core/types/community'
-import { useToast } from '~/hooks/use-toast';
-import postService, { type CommentPayload } from '~/services/post.service';
+import { colors } from "~/core/colors";
+import type { Comment } from "~/core/types/community";
+import { useToast } from "~/hooks/use-toast";
+import postService, { type CommentPayload } from "~/services/post.service";
 
-const userStore = useUserStore()
-const postStore = usePostStore()
-const { toast } = useToast()
+const userStore = useUserStore();
+const postStore = usePostStore();
+const { toast } = useToast();
 const props = defineProps<{
-  comments: Comment[]
-  postUsername: string
-  postId: string
-  onDeleteComments: (id: string) => void
-}>()
+  comments: Comment[];
+  postUsername: string;
+  postId: string;
+  onDeleteComments: (id: string) => void;
+}>();
 
-const isLoading = ref(false)
+const isLoading = ref(false);
 
 const commentPost = async () => {
   const payload: CommentPayload = {
     text: postStore.commentInput,
     postId: props.postId,
     userId: userStore.user!.id,
-  }
+  };
 
   try {
-    isLoading.value = true
-    const newComment = await postService.comment(payload)
-    props.comments.push(newComment)
-    postStore.commentInput = `@${props.postUsername}, `
-    isLoading.value = false
+    isLoading.value = true;
+    const newComment = await postService.comment(payload);
+    props.comments.push(newComment);
+    postStore.commentInput = `@${props.postUsername}, `;
+    isLoading.value = false;
   } catch (error) {
-    isLoading.value = false
-    toast.error({ message: 'Could not comment to post.' })
+    isLoading.value = false;
+    toast.error({ message: "Could not comment to post." });
   }
-}
+};
 
-const commentInputRules = ref([
-  (v: string) => !!v || 'comment is required.'
-])
+const commentInputRules = ref([(v: string) => !!v || "comment is required."]);
 
-
-const onDeleteComment = (id: string) => props.onDeleteComments(id)
+const onDeleteComment = (id: string) => props.onDeleteComments(id);
 
 onMounted(() => {
-  postStore.commentInput = `@${props.postUsername}, `
-})
-
+  postStore.commentInput = `@${props.postUsername}, `;
+});
 </script>
 
 <style scoped></style>

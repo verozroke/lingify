@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { colors } from '~/core/colors';
+import { colors } from "~/core/colors";
 </script>
 
 <style scoped>

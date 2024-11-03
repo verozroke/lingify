@@ -1,24 +1,13 @@
 <template>
-  <v-dialog
-    v-model="dialog"
-    width="500px"
-  >
-    <v-card
-      :loading="isLoading"
-      style="padding: 16px;"
-    >
-      <v-card-title>
-        Создать сообщество
-      </v-card-title>
-      <v-form
-        @submit="createCommunity"
-        class="p-4 flex flex-col gap-2"
-      >
+  <v-dialog v-model="dialog" width="500px">
+    <v-card :loading="isLoading" style="padding: 16px">
+      <v-card-title> Создать сообщество </v-card-title>
+      <v-form @submit="createCommunity" class="p-4 flex flex-col gap-2">
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label='Название'
+          label="Название"
           v-model="inputs.name"
           :rules="rules.name"
           placeholder="Введите название."
@@ -28,7 +17,7 @@
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label='Язык'
+          label="Язык"
           v-model="inputs.language"
           :rules="rules.language"
           placeholder="Введите язык."
@@ -38,7 +27,7 @@
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label='Описание'
+          label="Описание"
           v-model="inputs.description"
           :rules="rules.description"
           placeholder="Напишите описание."
@@ -48,7 +37,7 @@
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label='URL Аватарки'
+          label="URL Аватарки"
           v-model="inputs.avatarUrl"
           :rules="rules.avatarUrl"
           placeholder="Введите URL аватарки."
@@ -58,7 +47,7 @@
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label='URL Баннера'
+          label="URL Баннера"
           v-model="inputs.bannerUrl"
           :rules="rules.bannerUrl"
           placeholder="Введите URL баннера."
@@ -82,7 +71,8 @@
           :color="colors.EMERALD"
           text-color="white"
           prepend-icon="mdi-account-multiple-plus"
-        >Создать</UiButton>
+          >Создать</UiButton
+        >
         <UiButton
           :disable="isLoading"
           :loading="isLoading"
@@ -91,53 +81,57 @@
           mode="tonal"
           color="red"
           prepend-icon="mdi-close"
-        >Закрыть</UiButton>
+          >Закрыть</UiButton
+        >
       </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
 
 <script setup lang="ts">
-import { colors } from '~/core/colors';
-import type { Country } from '~/core/types/country';
-import { useToast } from '~/hooks/use-toast';
-import communityService, { type CreateCommunityPayload } from '~/services/community.service';
-import countryService from '~/services/country.service';
+import { colors } from "~/core/colors";
+import type { Country } from "~/core/types/country";
+import { useToast } from "~/hooks/use-toast";
+import communityService, {
+  type CreateCommunityPayload,
+} from "~/services/community.service";
+import countryService from "~/services/country.service";
 
-const router = useRouter()
-const { toast } = useToast()
-const userStore = useUserStore()
-const dialog = defineModel<boolean>()
-const isLoading = ref(false)
+const router = useRouter();
+const { toast } = useToast();
+const userStore = useUserStore();
+const dialog = defineModel<boolean>();
+const isLoading = ref(false);
 
-const countries = ref<string[]>([])
+const countries = ref<string[]>([]);
 
 const fetchCountries = async () => {
   try {
-    const fetchedContries: Country[] = await countryService.getCountries()
-    countries.value = fetchedContries.map(country => country.name)
+    const fetchedContries: Country[] = await countryService.getCountries();
+    countries.value = fetchedContries.map((country) => country.name);
   } catch (error) {
-    toast.success({ message: 'Could not fetch countries.' })
+    toast.success({ message: "Could not fetch countries." });
   }
-}
+};
 
-watch(dialog, async () => dialog ? await fetchCountries() : null)
+watch(dialog, async () => (dialog ? await fetchCountries() : null));
 
 const inputs = ref({
-  name: '',
-  language: '',
-  description: '',
-  avatarUrl: '',
-  bannerUrl: '',
-  country: 'Kazakhstan',
-})
+  name: "",
+  language: "",
+  description: "",
+  avatarUrl: "",
+  bannerUrl: "",
+  country: "Kazakhstan",
+});
 
 const createCommunity = async () => {
   if (!userStore.user) {
-    return
+    return;
   }
-  const { name, language, description, country, bannerUrl, avatarUrl } = inputs.value
-  console.log(country)
+  const { name, language, description, country, bannerUrl, avatarUrl } =
+    inputs.value;
+  console.log(country);
 
   const payload: CreateCommunityPayload = {
     name,
@@ -146,46 +140,36 @@ const createCommunity = async () => {
     countryName: country,
     bannerUrl,
     avatarUrl,
-    ownerId: userStore.user.id
-  }
+    ownerId: userStore.user.id,
+  };
 
   try {
-    isLoading.value = true
+    isLoading.value = true;
 
-    const { id } = await communityService.createCommunity(payload)
+    const { id } = await communityService.createCommunity(payload);
 
-    toast.success({ message: 'Community created successfully.' })
-    router.push(`/c/${id}`)
-    isLoading.value = false
+    toast.success({ message: "Community created successfully." });
+    router.push(`/c/${id}`);
+    isLoading.value = false;
   } catch (error) {
-    toast.error({ message: 'Could not create community.' })
-    isLoading.value = false
+    toast.error({ message: "Could not create community." });
+    isLoading.value = false;
   }
-}
-
+};
 
 const rules = ref({
-  name: [
-    (v: string) => !!v || 'name is required.'
-  ],
-  language: [
-    (v: string) => !!v || 'language is required.'
-  ],
-  description: [
-    (v: string) => !!v || 'description is required.'
-  ],
+  name: [(v: string) => !!v || "name is required."],
+  language: [(v: string) => !!v || "language is required."],
+  description: [(v: string) => !!v || "description is required."],
   avatarUrl: [
-    (v: string) => !!v || 'avatarUrl is required.',
-    (v: any) => isValidUrl(v) || 'Must be URL',
+    (v: string) => !!v || "avatarUrl is required.",
+    (v: any) => isValidUrl(v) || "Must be URL",
   ],
   bannerUrl: [
-    (v: string) => !!v || 'bannerUrl is required.',
-    (v: any) => isValidUrl(v) || 'Must be URL',
+    (v: string) => !!v || "bannerUrl is required.",
+    (v: any) => isValidUrl(v) || "Must be URL",
   ],
-})
-
-
-
+});
 </script>
 
 <style scoped></style>

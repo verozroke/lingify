@@ -5,24 +5,23 @@
   >
     <div class="overlay">
       <div class="hero">
-        <ui-lingify-title
-          :size="72"
-          style="margin-bottom: 20px;"
-        />
+        <ui-lingify-title :size="72" style="margin-bottom: 20px" />
         <v-row style="gap: 8px">
           <nuxt-link to="/login">
             <v-btn
               prepend-icon="mdi-login"
               color="teal-accent-4"
               class="text-transform-none"
-            >Войти</v-btn>
+              >Войти</v-btn
+            >
           </nuxt-link>
           <nuxt-link to="/register">
             <v-btn
               color="teal-accent-4"
               prepend-icon="mdi-account-plus"
               class="text-transform-none"
-            >Регистрация</v-btn>
+              >Регистрация</v-btn
+            >
           </nuxt-link>
         </v-row>
       </div>
@@ -30,9 +29,7 @@
   </v-parallax>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .bg {

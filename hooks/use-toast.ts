@@ -1,27 +1,25 @@
-import { useToastStore } from "~/stores/ToastStore"
-import { colorsEnum } from "~/core/colors"
+import { useToastStore } from "~/stores/ToastStore";
+import { colorsEnum } from "~/core/colors";
 
 export type ToastOptions = {
-  message: string,
-  timeout?: number
-}
-
+  message: string;
+  timeout?: number;
+};
 
 export const useToast = () => {
-
-  const toastStore = useToastStore()
+  const toastStore = useToastStore();
 
   const toast = {
     error({ message, timeout }: ToastOptions) {
-      toastStore.openSnackbar(message, timeout, colorsEnum.RED)
+      toastStore.openSnackbar(message, timeout, colorsEnum.RED);
     },
     success({ message, timeout }: ToastOptions) {
-      toastStore.openSnackbar(message, timeout, colorsEnum.EMERALD)
+      toastStore.openSnackbar(message, timeout, colorsEnum.EMERALD);
     },
     copied({ message, timeout }: ToastOptions) {
-      toastStore.openSnackbar(message, timeout, colorsEnum.VIOLET)
-    }
-  }
+      toastStore.openSnackbar(message, timeout, colorsEnum.VIOLET);
+    },
+  };
 
-  return { toast }
-}
+  return { toast };
+};

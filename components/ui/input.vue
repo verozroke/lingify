@@ -15,18 +15,18 @@
 </template>
 
 <script setup lang="ts">
-const model = defineModel()
+const model = defineModel();
 
 defineProps<{
-  label: string,
-  placeholder?: string,
-  prependIcon?: string
-  type: string
-  rules?: any[],
-  disabled?: boolean
-  loading?: boolean
-  counter?: number,
-}>()
+  label: string;
+  placeholder?: string;
+  prependIcon?: string;
+  type: string;
+  rules?: any[];
+  disabled?: boolean;
+  loading?: boolean;
+  counter?: number;
+}>();
 </script>
 
 <style scoped></style>

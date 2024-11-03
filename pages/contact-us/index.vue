@@ -1,23 +1,30 @@
 <template>
   <section class="py-24">
     <div class="mx-auto max-w-7xl sm:px-6 px-8">
-      <div class="grid grid-cols-2  gap-x-24">
+      <div class="grid grid-cols-2 gap-x-24">
         <div class="flex items-center mb-0">
           <div class="">
-            <h4 class="text-seagreen text-base font-medium leading-6 mb-4 text-left ">Contact Us</h4>
-            <h2 class="text-gray-900 font-manrope text-4xl font-semibold leading-10 mb-9 text-left ">Reach
-              Out To Us</h2>
+            <h4
+              class="text-seagreen text-base font-medium leading-6 mb-4 text-left"
+            >
+              Contact Us
+            </h4>
+            <h2
+              class="text-gray-900 font-manrope text-4xl font-semibold leading-10 mb-9 text-left"
+            >
+              Reach Out To Us
+            </h2>
             <form action="">
               <input
                 type="text"
                 class="w-full h-14 shadow-sm text-gray-600 placeholder-text-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none py-2 px-4 mb-8"
                 placeholder="Name"
-              >
+              />
               <input
                 type="email"
                 class="w-full h-14 shadow-sm text-gray-600 placeholder-text-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none py-2 px-4 mb-8"
                 placeholder="Email"
-              >
+              />
               <textarea
                 name=""
                 id="text"
@@ -26,11 +33,13 @@
               ></textarea>
               <button
                 class="w-full h-12 text-center text-white text-base font-semibold leading-6 rounded-full bg-seagreen shadow transition-all duration-700 hover:bg-seagreen/80"
-              >Submit</button>
+              >
+                Submit
+              </button>
             </form>
           </div>
         </div>
-        <div class="max-w-xl w-full h-[600px] flex items-center justify-center ">
+        <div class="max-w-xl w-full h-[600px] flex items-center justify-center">
           <div class="">
             <div class="w-96 h-auto bg-white shadow-xl p-6">
               <div class="flex items-center my-6 gap-2">
@@ -42,10 +51,7 @@
                   Lingify
                 </div>
               </div>
-              <a
-                href="javascript:;"
-                class="flex items-center mb-6"
-              >
+              <a href="javascript:;" class="flex items-center mb-6">
                 <svg
                   width="30"
                   height="30"
@@ -61,12 +67,11 @@
                     stroke-linejoin="round"
                   ></path>
                 </svg>
-                <h5 class="text-black text-base font-normal leading-6 ml-5">+77474461966</h5>
+                <h5 class="text-black text-base font-normal leading-6 ml-5">
+                  +77474461966
+                </h5>
               </a>
-              <a
-                href="javascript:;"
-                class="flex items-center mb-6"
-              >
+              <a href="javascript:;" class="flex items-center mb-6">
                 <svg
                   width="30"
                   height="30"
@@ -81,12 +86,11 @@
                     stroke-linecap="round"
                   ></path>
                 </svg>
-                <h5 class="text-black text-base font-normal leading-6 ml-5">lingify@gmail.com</h5>
+                <h5 class="text-black text-base font-normal leading-6 ml-5">
+                  lingify@gmail.com
+                </h5>
               </a>
-              <a
-                href="javascript:;"
-                class="flex items-center mb-6"
-              >
+              <a href="javascript:;" class="flex items-center mb-6">
                 <svg
                   width="30"
                   height="30"
@@ -105,13 +109,14 @@
                     stroke-width="2"
                   ></path>
                 </svg>
-                <h5 class="text-black text-base font-normal leading-6 ml-5">Astana, Seifullina 65/1</h5>
+                <h5 class="text-black text-base font-normal leading-6 ml-5">
+                  Astana, Seifullina 65/1
+                </h5>
               </a>
-              <div class="flex items-center justify-center border-t border-gray-100 pt-6">
-                <a
-                  href="javascript:;"
-                  class="mr-6"
-                >
+              <div
+                class="flex items-center justify-center border-t border-gray-100 pt-6"
+              >
+                <a href="javascript:;" class="mr-6">
                   <svg
                     width="31"
                     height="30"
@@ -132,10 +137,7 @@
                     ></path>
                   </svg>
                 </a>
-                <a
-                  href="javascript:;"
-                  class="mr-6"
-                >
+                <a href="javascript:;" class="mr-6">
                   <svg
                     width="31"
                     height="30"
@@ -164,34 +166,16 @@
                         gradientUnits="userSpaceOnUse"
                       >
                         <stop stop-color="#FBE18A"></stop>
-                        <stop
-                          offset="0.21"
-                          stop-color="#FCBB45"
-                        ></stop>
-                        <stop
-                          offset="0.38"
-                          stop-color="#F75274"
-                        ></stop>
-                        <stop
-                          offset="0.52"
-                          stop-color="#D53692"
-                        ></stop>
-                        <stop
-                          offset="0.74"
-                          stop-color="#8F39CE"
-                        ></stop>
-                        <stop
-                          offset="1"
-                          stop-color="#5B4FE9"
-                        ></stop>
+                        <stop offset="0.21" stop-color="#FCBB45"></stop>
+                        <stop offset="0.38" stop-color="#F75274"></stop>
+                        <stop offset="0.52" stop-color="#D53692"></stop>
+                        <stop offset="0.74" stop-color="#8F39CE"></stop>
+                        <stop offset="1" stop-color="#5B4FE9"></stop>
                       </linearGradient>
                     </defs>
                   </svg>
                 </a>
-                <a
-                  href="javascript:;"
-                  class="mr-6"
-                >
+                <a href="javascript:;" class="mr-6">
                   <svg
                     width="31"
                     height="30"
@@ -219,11 +203,8 @@
       </div>
     </div>
   </section>
-
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped></style>

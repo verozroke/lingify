@@ -1,6 +1,6 @@
 export type Country = {
-  id: string
-  name: string
-  code: string
-  language: string
-}
+  id: string;
+  name: string;
+  code: string;
+  language: string;
+};

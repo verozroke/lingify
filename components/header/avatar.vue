@@ -8,7 +8,8 @@
     prepend-icon="mdi-login"
     color="teal-accent-4"
     class="text-transform-none"
-  >Войти</v-btn>
+    >Войти</v-btn
+  >
   <v-btn
     v-if="!userStore.isAuthenticated"
     @click="router.push('/register')"
@@ -17,12 +18,13 @@
     color="teal-accent-4"
     prepend-icon="mdi-account-plus"
     class="text-transform-none ml-4"
-  >Регистрация</v-btn>
+    >Регистрация</v-btn
+  >
 </template>
 
 <script setup lang="ts">
-const userStore = useUserStore()
-const router = useRouter()
+const userStore = useUserStore();
+const router = useRouter();
 </script>
 
 <style scoped>

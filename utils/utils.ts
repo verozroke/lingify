@@ -9,12 +9,11 @@ export const debounce = (fn: Function, ms = 300) => {
 };
 
 export const copyToureLink = (id: string) => {
-  const { toast } = useToast()
-  const link = `${window.origin}/toure/${id}`
+  const { toast } = useToast();
+  const link = `${window.origin}/toure/${id}`;
   navigator.clipboard.writeText(link);
-  toast.copied({ message: 'URL Copied successfully' })
-}
-
+  toast.copied({ message: "URL Copied successfully" });
+};
 
 export function isValidUrl(url: string) {
   try {
@@ -32,12 +31,11 @@ export function isValidDateFormat(dateString: string) {
     return false;
   }
 
-  const [year, month, day] = dateString.split('-');
+  const [year, month, day] = dateString.split("-");
   const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
 
   return (
     date.getFullYear() === parseInt(year) &&
-
     date.getMonth() + 1 === parseInt(month) &&
     date.getDate() === parseInt(day)
   );
@@ -45,28 +43,28 @@ export function isValidDateFormat(dateString: string) {
 
 export function formatDate(inputDate: Date) {
   const date = new Date(inputDate);
-  const formattedDate = date.toLocaleDateString('en-US', {
-    month: 'long',
-    year: 'numeric'
+  const formattedDate = date.toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
   });
 
   const day = date.getDate();
   let daySuffix;
   if (day >= 11 && day <= 13) {
-    daySuffix = 'th';
+    daySuffix = "th";
   } else {
     switch (day % 10) {
       case 1:
-        daySuffix = 'st';
+        daySuffix = "st";
         break;
       case 2:
-        daySuffix = 'nd';
+        daySuffix = "nd";
         break;
       case 3:
-        daySuffix = 'rd';
+        daySuffix = "rd";
         break;
       default:
-        daySuffix = 'th';
+        daySuffix = "th";
     }
   }
 
@@ -76,7 +74,7 @@ export function formatDate(inputDate: Date) {
 export const isEmail = (email: string): boolean => {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailPattern.test(email);
-}
+};
 
 export function formatTimeElapsed(createdAt: Date) {
   const elapsed = Date.now() - new Date(createdAt).getTime();
@@ -88,23 +86,23 @@ export function formatTimeElapsed(createdAt: Date) {
   const years = Math.floor(days / 365);
 
   if (years > 0) {
-    return `${years} year${years > 1 ? 's' : ''} ago`;
+    return `${years} year${years > 1 ? "s" : ""} ago`;
   } else if (months > 0) {
-    return `${months} month${months > 1 ? 's' : ''} ago`;
+    return `${months} month${months > 1 ? "s" : ""} ago`;
   } else if (days > 0) {
-    return `${days} day${days > 1 ? 's' : ''} ago`;
+    return `${days} day${days > 1 ? "s" : ""} ago`;
   } else if (hours > 0) {
-    return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+    return `${hours} hour${hours > 1 ? "s" : ""} ago`;
   } else if (minutes > 0) {
-    return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+    return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
   } else {
-    return `${seconds} second${seconds > 1 ? 's' : ''} ago`;
+    return `${seconds} second${seconds > 1 ? "s" : ""} ago`;
   }
 }
 
 export function openUrl(url: string) {
-  const a = document.createElement('a')
-  a.href = url
-  a.target = '_blank'
-  a.click()
-} 
+  const a = document.createElement("a");
+  a.href = url;
+  a.target = "_blank";
+  a.click();
+}

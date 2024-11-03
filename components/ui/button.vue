@@ -19,22 +19,20 @@
 </template>
 
 <script setup lang="ts">
-
 defineProps<{
-  color: string,
-  textColor?: string,
-  width?: string,
-  prependIcon?: string,
-  appendIcon?: string,
-  icon?: string | boolean,
-  size?: string,
-  density?: 'comfortable' | 'compact' | 'default',
-  type?: string
-  disabled?: boolean
-  loading?: boolean
-  mode: 'elevated' | 'tonal' | 'outlined' | 'text',
-}>()
-
+  color: string;
+  textColor?: string;
+  width?: string;
+  prependIcon?: string;
+  appendIcon?: string;
+  icon?: string | boolean;
+  size?: string;
+  density?: "comfortable" | "compact" | "default";
+  type?: string;
+  disabled?: boolean;
+  loading?: boolean;
+  mode: "elevated" | "tonal" | "outlined" | "text";
+}>();
 </script>
 
 <style scoped></style>

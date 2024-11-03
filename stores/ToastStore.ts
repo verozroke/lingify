@@ -1,29 +1,35 @@
-import { defineStore } from 'pinia';
-import { colorsEnum, colors } from '~/core/colors';
+import { defineStore } from "pinia";
+import { colorsEnum, colors } from "~/core/colors";
 
+export type ToastColor =
+  | colorsEnum.EMERALD
+  | colorsEnum.RED
+  | colorsEnum.VIOLET;
 
-export type ToastColor = colorsEnum.EMERALD | colorsEnum.RED | colorsEnum.VIOLET
+export const useToastStore = defineStore("ToastStore", () => {
+  const snackbar = ref<boolean>(false);
+  const color = ref<ToastColor>(colorsEnum.EMERALD);
+  const message = ref<string>("");
+  const timeout = ref<number>(2000);
 
-export const useToastStore = defineStore('ToastStore', () => {
-  const snackbar = ref<boolean>(false)
-  const color = ref<ToastColor>(colorsEnum.EMERALD)
-  const message = ref<string>('')
-  const timeout = ref<number>(2000)
+  const openSnackbar = (
+    messageValue: string,
+    timeoutValue: number = 2000,
+    colorValue: ToastColor,
+  ) => {
+    timeout.value = timeoutValue;
+    message.value = messageValue;
+    color.value = colorValue;
+    snackbar.value = true;
 
-  const openSnackbar = (messageValue: string, timeoutValue: number = 2000, colorValue: ToastColor) => {
-    timeout.value = timeoutValue
-    message.value = messageValue
-    color.value = colorValue
-    snackbar.value = true
-
-    setTimeout(() => setToDefault(), timeout.value)
-  }
+    setTimeout(() => setToDefault(), timeout.value);
+  };
 
   const setToDefault = () => {
-    color.value = colorsEnum.EMERALD
-    message.value = ''
-    timeout.value = 2000
-  }
+    color.value = colorsEnum.EMERALD;
+    message.value = "";
+    timeout.value = 2000;
+  };
 
   return {
     snackbar,
@@ -31,6 +37,6 @@ export const useToastStore = defineStore('ToastStore', () => {
     message,
     timeout,
     openSnackbar,
-    setToDefault
+    setToDefault,
   };
 });
