@@ -18,7 +18,6 @@
               @click="openMaterial(material)"
               v-for="material in materials"
               :key="material.id"
-              :href="material.description"
               class="text-xl w-fit text-center mx-auto hover:text-oxford font-bold leading-4 text-oxford/70 transition-all cursor-pointer"
             >{{ material.name }}</span>
           </div>
@@ -63,6 +62,7 @@
           <div class="flex flex-col gap-2">
             <UiButton
               @click="() => {
+                console.log(lesson)
                 materials = lesson.materials
                 sheet = true
               }"
@@ -99,7 +99,7 @@ const userStore = useUserStore()
 const { toast } = useToast()
 
 const course = ref<Course>()
-const materials = ref<Material[]>()
+const materials = ref<Material[]>([])
 const material = ref<Material | null>(null)
 const isLoading = ref(false)
 const openedLesson = ref<Lesson>()

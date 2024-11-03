@@ -6,7 +6,7 @@
         Выберите курс, чтобы продолжить свое изучение языков
       </p>
       <CourseCreateDialog v-model="dialog" />
-      <div class="w-full flex items-center">
+      <div class="w-full flex items-center flex-wrap">
         <CourseCard
           v-for="course in courses"
           :key="course.id"

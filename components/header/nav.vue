@@ -40,6 +40,18 @@ const links = [
     icon: 'frequently-asked-questions',
 
   },
+  {
+    name: 'Цены',
+    url: '/pricing',
+    icon: 'cash',
+
+  },
+  {
+    name: 'Cвязь',
+    url: '/contact-us',
+    icon: 'phone',
+
+  },
 ]
 </script>
 
