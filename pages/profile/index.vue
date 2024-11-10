@@ -89,7 +89,7 @@
                       textColor="white"
                       prependIcon="mdi-pencil"
                     >
-                      Редактировать профиль
+                      Edit Profile
                     </UiButton>
                   </NuxtLink>
                 </div>
@@ -101,14 +101,16 @@
                       class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
                       >{{ userStore.user?.cardSets.length }}</span
                     >
-                    <span class="text-sm text-blueGray-400">Наборы</span>
+                    <span class="text-sm text-blueGray-400">Sets</span>
                   </div>
 
                   <div class="lg:mr-4 p-3 text-center">
                     <span
                       class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
                       >{{ userStore.user?.subscribers.length }}</span
-                    ><span class="text-sm text-blueGray-400">Подписки</span>
+                    ><span class="text-sm text-blueGray-400"
+                      >Subscribtions</span
+                    >
                   </div>
                 </div>
               </div>
@@ -149,14 +151,14 @@
               </div>
               <div class="mb-2 text-blueGray-600">
                 <v-icon>mdi-clock-time-eight</v-icon>
-                Аккаунт создан: {{ formattedCreatedAt }}
+                Created At: {{ formattedCreatedAt }}
               </div>
             </div>
             <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
               <div
                 class="text-lg leading-normal mt-0 mb-2 text-blueGray-700 font-bold"
               >
-                Описание
+                Bio
               </div>
               <div class="flex flex-wrap justify-center">
                 <div class="w-full lg:w-9/12 px-4">
@@ -164,7 +166,7 @@
                     {{
                       userStore.user?.bio
                         ? userStore.user.bio
-                        : "Здесь вы расскажите о себе."
+                        : "Tell about yourself."
                     }}
                   </p>
                 </div>
@@ -177,14 +179,14 @@
                 <div
                   class="text-lg leading-normal mt-0 mb-2 text-blueGray-700 font-bold"
                 >
-                  Наборы карточек
+                  Card Sets
                 </div>
                 <UiButton
                   color="#0088cc"
                   text-color="#fff"
                   mode="elevated"
                   append-icon="mdi-chevron-right"
-                  >Перейти в telegram</UiButton
+                  >Go To Telegram</UiButton
                 >
               </div>
             </div>

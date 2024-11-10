@@ -14,7 +14,7 @@
           mode="tonal"
           color="red"
           prepend-icon="mdi-close"
-          >Закрыть</UiButton
+          >Close</UiButton
         >
       </v-card-actions>
     </v-card>

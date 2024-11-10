@@ -8,13 +8,6 @@ export const debounce = (fn: Function, ms = 300) => {
   };
 };
 
-export const copyToureLink = (id: string) => {
-  const { toast } = useToast();
-  const link = `${window.origin}/toure/${id}`;
-  navigator.clipboard.writeText(link);
-  toast.copied({ message: "URL Copied successfully" });
-};
-
 export function isValidUrl(url: string) {
   try {
     new URL(url);

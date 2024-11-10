@@ -8,7 +8,7 @@
     prepend-icon="mdi-login"
     color="teal-accent-4"
     class="text-transform-none"
-    >Войти</v-btn
+    >Login</v-btn
   >
   <v-btn
     v-if="!userStore.isAuthenticated"
@@ -18,7 +18,7 @@
     color="teal-accent-4"
     prepend-icon="mdi-account-plus"
     class="text-transform-none ml-4"
-    >Регистрация</v-btn
+    >Register</v-btn
   >
 </template>
 

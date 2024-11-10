@@ -5,11 +5,11 @@
       <h1
         class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl"
       >
-        Сообщества
+        Communities
       </h1>
       <p class="max-w-2xl mx-auto my-6 text-center text-gray-500">
-        Здесь вы найдете много сообществ с которыми вы можете разделить свое
-        изучение разных языков
+        Here you will find many communities with which you can share your
+        learning of different languages
       </p>
       <div
         class="flex flex-col items-start md:items-center gap-4 w-fit md:flex-row"
@@ -36,7 +36,7 @@
           :color="colors.SEAGREEN"
           text-color="white"
           @click="openDialog"
-          >Создать сообщество</UiButton
+          >Create community</UiButton
         >
       </div>
       <LoaderSpinner v-if="isLoading" />
@@ -54,7 +54,7 @@
           class="text-gray-500 mt-5 flex flex-col items-center"
         >
           <v-icon size="200">mdi-emoticon-sad-outline</v-icon>
-          <div class="text-center">Пока что нету сообществ.</div>
+          <div class="text-center">No communities found.</div>
         </div>
       </template>
     </div>

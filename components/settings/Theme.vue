@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col pb-4 w-full">
     <div class="text-2xl font-bold w-full leading-10 text-oxford">
-      Настройка темы
+      Theme Settings
     </div>
     <div class="text-sm font-medium w-full leading-5 text-slate-500">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi maxime
@@ -10,7 +10,7 @@
     <div class="flex bg-slate-300 my-4 h-[1px] rounded-full w-full"></div>
     <div class="flex flex-col">
       <div class="text-xl font-bold w-full leading-10 text-oxford">
-        Темная тема
+        Dark Theme
       </div>
       <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -20,7 +20,7 @@
         hide-details
         inset
         color="#28B0A6"
-        :label="`Темная тема: ${settingStore.darkMode ? 'Включен' : 'Выключен'}`"
+        :label="`Dark theme: ${settingStore.darkMode ? 'Turn on' : 'Turn off'}`"
       ></v-switch>
     </div>
   </div>

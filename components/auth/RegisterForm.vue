@@ -104,7 +104,7 @@ const onRegister = async () => {
       router.push("/login");
     } catch (e) {
       isLoading.value = false;
-      toastStore.openSnackbar("Произошла ошибка.", 3000, colorsEnum.RED);
+      toastStore.openSnackbar("Error occured.", 3000, colorsEnum.RED);
     }
   }
 };
@@ -117,7 +117,7 @@ const emailRules = ref([
   (v: string) => !!v || "email is required.",
   (v: any) => {
     const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-    return v.match(emailPattern) ? true : "Некорректный формат почты";
+    return v.match(emailPattern) ? true : "Email format incorrect";
   },
 ]);
 </script>

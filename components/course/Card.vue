@@ -42,7 +42,7 @@
       />
     </div>
     <div class="relative text-white px-6 pb-6 mt-6">
-      <span class="block opacity-75 -mb-1">Курс</span>
+      <span class="block opacity-75 -mb-1">Course</span>
       <div class="flex justify-between items-center">
         <span class="block font-semibold text-xl">{{ course.name }}</span>
         <UiButton

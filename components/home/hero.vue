@@ -12,7 +12,7 @@
               prepend-icon="mdi-login"
               color="teal-accent-4"
               class="text-transform-none"
-              >Войти</v-btn
+              >Login</v-btn
             >
           </nuxt-link>
           <nuxt-link to="/register">
@@ -20,7 +20,7 @@
               color="teal-accent-4"
               prepend-icon="mdi-account-plus"
               class="text-transform-none"
-              >Регистрация</v-btn
+              >Register</v-btn
             >
           </nuxt-link>
         </v-row>

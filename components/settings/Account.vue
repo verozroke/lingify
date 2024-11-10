@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col pb-4 w-full">
     <div class="text-2xl font-bold w-full leading-10 text-oxford">
-      Настройки учетной записи
+      Account Settings
     </div>
     <div class="text-sm font-medium w-full leading-5 text-slate-500">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi maxime
@@ -22,16 +22,16 @@
       </div>
       <div class="flex flex-col">
         <div class="text-xl font-bold w-full leading-10 text-oxford">
-          Ваш аватар
+          Your avatar
         </div>
         <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </div>
         <v-text-field
           :rules="imageURLRules"
-          placeholder="Вставьте URL Аватарки."
+          placeholder="Paste Image URL."
           clearable
-          label="URL Аватарки"
+          label="Image URL"
           v-model="settingStore.imageUrlInput"
           class="mt-5"
           prepend-inner-icon="mdi-link-variant"
@@ -42,7 +42,7 @@
           style="width: fit-content; text-transform: none"
           class="px-4 mt-2 text-white"
           color="#28B0A6"
-          >Сохранить</v-btn
+          >Save</v-btn
         >
       </div>
     </div>
@@ -60,16 +60,16 @@
       </div>
       <div class="flex flex-col">
         <div class="text-xl font-bold w-full leading-10 text-oxford">
-          Ваш баннер
+          Your banner
         </div>
         <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </div>
         <v-text-field
           :rules="imageURLRules"
-          placeholder="Вставьте URL Баннера."
+          placeholder="Paste URL Banner."
           clearable
-          label="URL Баннера"
+          label="Banner URL"
           v-model="settingStore.bannerUrlInput"
           class="mt-5"
           prepend-inner-icon="mdi-link-variant"
@@ -80,23 +80,23 @@
           style="width: fit-content; text-transform: none"
           class="px-4 mt-2 text-white"
           color="#28B0A6"
-          >Сохранить</v-btn
+          >Save</v-btn
         >
       </div>
     </div>
     <div class="flex flex-wrap gap-10 mt-10">
       <div class="flex flex-col">
         <div class="text-xl font-bold w-full leading-10 text-oxford">
-          Никнейм
+          Nickname
         </div>
         <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </div>
         <v-text-field
           :rules="nameRules"
-          placeholder="Напишите никнейм"
+          placeholder="Type your nickname"
           clearable
-          label="Никнейм"
+          label="Nickname"
           v-model="settingStore.nameInput"
           class="mt-5"
           prepend-inner-icon="mdi-account-edit"
@@ -107,7 +107,7 @@
           style="width: fit-content; text-transform: none"
           class="px-4 mt-2 text-white"
           color="#28B0A6"
-          >Сохранить</v-btn
+          >Save</v-btn
         >
       </div>
       <div class="flex flex-col">
@@ -117,7 +117,7 @@
         </div>
         <v-text-field
           :rules="emailRules"
-          placeholder="Напишите ваш email"
+          placeholder="Type your email"
           clearable
           label="Email"
           v-model="settingStore.emailInput"
@@ -130,21 +130,21 @@
           style="width: fit-content; text-transform: none"
           class="px-4 mt-2 text-white"
           color="#28B0A6"
-          >Сохранить</v-btn
+          >Save</v-btn
         >
       </div>
       <div class="flex flex-col">
         <div class="text-xl font-bold w-full leading-10 text-oxford">
-          Полное имя
+          Full Name
         </div>
         <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </div>
         <v-text-field
           :rules="fullNameRules"
-          placeholder="Напишите ваше полное имя"
+          placeholder="Type your full name"
           clearable
-          label="Полное имя"
+          label="Full Name"
           v-model="settingStore.fullNameInput"
           class="mt-5"
           prepend-inner-icon="mdi-account-edit"
@@ -155,18 +155,18 @@
           style="width: fit-content; text-transform: none"
           class="px-4 mt-2 text-white"
           color="#28B0A6"
-          >Сохранить</v-btn
+          >Save</v-btn
         >
       </div>
       <div class="flex flex-col">
-        <div class="text-xl font-bold w-full leading-10 text-oxford">Био</div>
+        <div class="text-xl font-bold w-full leading-10 text-oxford">Bio</div>
         <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </div>
         <v-text-field
-          placeholder="Напишите о себе"
+          placeholder="Type about yourself"
           clearable
-          label="Био"
+          label="Bio"
           v-model="settingStore.bioInput"
           class="mt-5"
           prepend-inner-icon="mdi-text-account"
@@ -177,16 +177,18 @@
           style="width: fit-content; text-transform: none"
           class="px-4 mt-2 text-white"
           color="#28B0A6"
-          >Сохранить</v-btn
+          >Save</v-btn
         >
       </div>
       <div class="flex flex-col">
-        <div class="text-xl font-bold w-full leading-10 text-oxford">Био</div>
+        <div class="text-xl font-bold w-full leading-10 text-oxford">
+          Country
+        </div>
         <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </div>
         <v-select
-          label="Страна"
+          label="Country"
           v-model="settingStore.countryInput"
           :items="countries"
           variant="outlined"
@@ -199,12 +201,12 @@
           style="width: fit-content; text-transform: none"
           class="px-4 mt-2 text-white"
           color="#28B0A6"
-          >Сохранить</v-btn
+          >Save</v-btn
         >
       </div>
     </div>
     <div class="text-2xl font-bold w-full leading-10 text-oxford mt-10">
-      Смена пароля
+      Change password
     </div>
     <div class="text-sm font-medium w-full leading-5 text-slate-500">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi maxime
@@ -214,7 +216,7 @@
     <div class="flex flex-wrap gap-10">
       <div class="flex flex-col">
         <div class="text-xl font-bold w-full leading-10 text-oxford">
-          Старый пароль
+          Old Password
         </div>
         <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -224,10 +226,10 @@
           :rules="passwordRules"
           density="compact"
           style="width: 350px"
-          placeholder="Напишите ваш старый пароль"
+          placeholder="Type your old password"
           type="password"
           clearable
-          label="Старый пароль"
+          label="Old password"
           v-model="settingStore.oldPasswordInput"
           class="mt-5 w-full"
           prepend-inner-icon="mdi-lock-question"
@@ -236,7 +238,7 @@
       </div>
       <div class="flex flex-col">
         <div class="text-xl font-bold w-full leading-10 text-oxford">
-          Новый пароль
+          New Password
         </div>
         <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -246,10 +248,10 @@
           :rules="passwordRules"
           density="compact"
           style="width: 350px"
-          placeholder="Напишите ваш новый пароль"
+          placeholder="Type your New Password"
           type="password"
           clearable
-          label="Новый пароль"
+          label="New Password"
           v-model="settingStore.newPasswordInput"
           class="mt-5 w-full"
           prepend-inner-icon="mdi-lock"
@@ -258,7 +260,7 @@
       </div>
       <div class="flex flex-col">
         <div class="text-xl font-bold w-full leading-10 text-oxford">
-          Подтверждение пароля
+          Confirm Password
         </div>
         <div class="text-xs font-medium w-full leading-5 -mt-2 text-slate-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -268,10 +270,10 @@
           :rules="passwordRules"
           density="compact"
           style="width: 350px"
-          placeholder="Повторите ваш новый пароль"
+          placeholder="Repeat your password"
           type="password"
           clearable
-          label="Подтверждение пароля"
+          label="Confirm your password"
           v-model="settingStore.newPasswordRepeatInput"
           class="mt-5 w-full"
           prepend-inner-icon="mdi-lock-check"
@@ -284,7 +286,7 @@
       style="width: fit-content; text-transform: none"
       class="px-4 mt-2 text-white"
       color="#28B0A6"
-      >Сменить пароль</v-btn
+      >Change password</v-btn
     >
   </div>
 </template>

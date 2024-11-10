@@ -85,7 +85,7 @@ const onLogin = async () => {
       router.push("/profile");
     } catch (e) {
       isLoading.value = false;
-      toastStore.openSnackbar("Произошла ошибка.", 3000, colorsEnum.RED);
+      toastStore.openSnackbar("Error occured.", 3000, colorsEnum.RED);
     }
   }
 };

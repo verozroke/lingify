@@ -35,17 +35,13 @@ export const useUserStore = defineStore("userStore", () => {
     try {
       isLogoutLoading.value = true;
       await authService.signOut();
-      toastStore.openSnackbar(
-        "Выход из вашего аккаунта произведен успешно.",
-        2000,
-        colorsEnum.EMERALD,
-      );
+      toastStore.openSnackbar("Sign out succeded.", 2000, colorsEnum.EMERALD);
       isLogoutLoading.value = false;
       isAuthenticated.value = false;
       router.push("/login");
     } catch (error) {
       toastStore.openSnackbar(
-        "Не удалось выйти из вашего аккаунта.",
+        "Couldn't sign out from your account.",
         2000,
         colorsEnum.RED,
       );

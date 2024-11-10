@@ -1,13 +1,9 @@
 <template>
-  <v-dialog
-    v-model="dialog"
-    width="500px"
-  >
-    <v-card
-      :loading="isLoading"
-      style="padding: 16px"
-    >
-      <v-card-title> Create Course for {{ isTeacher ? 'Teacher' : 'Students' }} </v-card-title>
+  <v-dialog v-model="dialog" width="500px">
+    <v-card :loading="isLoading" style="padding: 16px">
+      <v-card-title>
+        Create Course for {{ isTeacher ? "Teacher" : "Students" }}
+      </v-card-title>
       <v-switch
         v-model="isTeacher"
         class="px-4"
@@ -60,10 +56,10 @@
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label="URL Аватарки"
+          label="Image URL"
           v-model="teacherInputs.avatarUrl"
           :rules="teacherRules.avatarUrl"
-          placeholder="Введите URL аватарки."
+          placeholder="Type Image URL."
           type="text"
         />
         <v-btn
@@ -73,11 +69,14 @@
           mode="elevated"
           :color="colors.EMERALD"
           text-color="white"
-          style="text-transform: none;"
+          style="text-transform: none"
           prepend-icon="mdi-plus"
-        >Add Lesson</v-btn>
+          >Add Lesson</v-btn
+        >
         <template v-for="(lesson, i) in teacherInputs.lessons">
-          <h1 class="py-4 font-medium text-xl"> Lesson {{ i + 1 }} {{ lesson.name ? `(${lesson.name})` : '' }} </h1>
+          <h1 class="py-4 font-medium text-xl">
+            Lesson {{ i + 1 }} {{ lesson.name ? `(${lesson.name})` : "" }}
+          </h1>
           <UiInput
             :loading="isLoading"
             :disabled="isLoading"
@@ -163,10 +162,10 @@
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label="URL Аватарки"
+          label="Image URL"
           v-model="inputs.avatarUrl"
           :rules="rules.avatarUrl"
-          placeholder="Введите URL аватарки."
+          placeholder="Type Image URL."
           type="text"
         />
       </v-form>
@@ -180,7 +179,8 @@
           :color="colors.EMERALD"
           text-color="white"
           prepend-icon="mdi-account-multiple-plus"
-        >Создать</UiButton>
+          >Create</UiButton
+        >
         <UiButton
           :disable="isLoading"
           :loading="isLoading"
@@ -189,7 +189,8 @@
           mode="tonal"
           color="red"
           prepend-icon="mdi-close"
-        >Закрыть</UiButton>
+          >Close</UiButton
+        >
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -198,33 +199,35 @@
 <script setup lang="ts">
 import { colors } from "~/core/colors";
 import { useToast } from "~/hooks/use-toast";
-import type { CreateCourseAsTeacherPayload, CreateCoursePayload } from "~/services/course.service";
+import type {
+  CreateCourseAsTeacherPayload,
+  CreateCoursePayload,
+} from "~/services/course.service";
 import courseService from "~/services/course.service";
 
-
 export type LessonInput = {
-  name: string
-  description: string
-  keyWords: string
-  materialName: string
-  materialText: string
-}
+  name: string;
+  description: string;
+  keyWords: string;
+  materialName: string;
+  materialText: string;
+};
 
 export type TeacherInputsType = {
-  courseLanguage: string,
-  nativeLanguage: string,
-  languageLevel: string,
-  avatarUrl: string,
-  description: string,
-  lessons: LessonInput[],
-}
+  courseLanguage: string;
+  nativeLanguage: string;
+  languageLevel: string;
+  avatarUrl: string;
+  description: string;
+  lessons: LessonInput[];
+};
 
 const router = useRouter();
 const { toast } = useToast();
 const userStore = useUserStore();
 const dialog = defineModel<boolean>();
 const isLoading = ref(false);
-const isTeacher = ref(false)
+const isTeacher = ref(false);
 const levels = ref<string[]>(["A1", "A2", "B1", "B2", "C1", "C2"]);
 
 const inputs = ref({
@@ -243,22 +246,27 @@ const teacherInputs = ref<TeacherInputsType>({
   lessons: [],
 });
 
-
 const addLesson = () => {
   teacherInputs.value.lessons.push({
-    name: '',
-    description: '',
-    keyWords: '',
-    materialName: '',
-    materialText: '',
-  })
-}
+    name: "",
+    description: "",
+    keyWords: "",
+    materialName: "",
+    materialText: "",
+  });
+};
 const createCourseAsTeacher = async () => {
   if (!userStore.user) {
     return;
   }
-  const { courseLanguage, nativeLanguage, languageLevel, avatarUrl, description, lessons } =
-    teacherInputs.value;
+  const {
+    courseLanguage,
+    nativeLanguage,
+    languageLevel,
+    avatarUrl,
+    description,
+    lessons,
+  } = teacherInputs.value;
 
   const payload: CreateCourseAsTeacherPayload = {
     courseLanguage,
@@ -280,7 +288,7 @@ const createCourseAsTeacher = async () => {
     toast.error({ message: "Could not create course as teacher." });
     isLoading.value = false;
   }
-}
+};
 
 const createCourse = async () => {
   if (!userStore.user) {
@@ -318,7 +326,6 @@ const rules = ref({
     (v: any) => isValidUrl(v) || "Must be URL",
   ],
 });
-
 
 const teacherRules = ref({
   courseLanguage: [(v: string) => !!v || "Course Language is required."],

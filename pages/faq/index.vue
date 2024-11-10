@@ -3,7 +3,7 @@
   <div class="max-w-screen-xl mx-auto px-5 py-5 bg-white min-h-sceen">
     <div class="flex flex-col items-center">
       <h2 class="text-seagreen font-bold text-5xl mt-5 tracking-tight">FAQ</h2>
-      <p class="text-neutral-500 text-xl mt-3">Часто задаваемые вопросы</p>
+      <p class="text-neutral-500 text-xl mt-3">Frequently Asked Questions</p>
     </div>
     <div class="grid divide-y divide-neutral-200 max-w-xl mx-auto mt-8">
       <div class="py-5">

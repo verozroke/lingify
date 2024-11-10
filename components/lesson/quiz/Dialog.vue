@@ -2,7 +2,7 @@
   <v-dialog v-model="dialog" width="700px">
     <v-card :loading="isLoading" style="padding: 16px">
       <v-card-title>
-        Тест за урок: {{ questionPayload.lessonName }}
+        Lesson Quiz: {{ questionPayload.lessonName }}
       </v-card-title>
       <v-form @submit="checkQuiz" class="p-4 flex flex-col gap-2 relative">
         <LoaderSpinner style="position: static" v-if="isLoading" />
@@ -27,7 +27,7 @@
           class="text-oxford text-lg leading-3 mx-4 font-medium"
           v-if="quizResult"
         >
-          Результат: {{ quizResult }}
+          Result: {{ quizResult }}
         </div>
         <UiButton
           :disable="isLoading"

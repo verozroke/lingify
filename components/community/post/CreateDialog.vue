@@ -1,36 +1,36 @@
 <template>
   <v-dialog v-model="dialog" width="500px">
     <v-card :loading="isLoading" style="padding: 16px">
-      <v-card-title> Создать пост </v-card-title>
+      <v-card-title> Create Post </v-card-title>
       <v-form @submit="createPost" class="p-4 flex flex-col gap-2">
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label="Заголовок"
+          label="Title"
           v-model="inputs.title"
           :rules="rules.title"
-          placeholder="Введите заголовок."
+          placeholder="Type title."
           type="text"
         />
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label="Текст"
+          label="Text"
           v-model="inputs.text"
           :rules="rules.text"
-          placeholder="Напишите текст."
+          placeholder="Type your text."
           type="text"
         />
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label="URL Картинки (необязательно)"
+          label="Image URL (optional)"
           v-model="inputs.imageUrl"
           :rules="rules.imageUrl"
-          placeholder="Введите URL Картинки."
+          placeholder="Enter Image URL."
           type="text"
         />
       </v-form>
@@ -44,7 +44,7 @@
           :color="colors.EMERALD"
           text-color="white"
           prepend-icon="mdi-note-plus"
-          >Создать</UiButton
+          >Create</UiButton
         >
         <UiButton
           :disable="isLoading"
@@ -54,7 +54,7 @@
           mode="tonal"
           color="red"
           prepend-icon="mdi-close"
-          >Закрыть</UiButton
+          >Close</UiButton
         >
       </v-card-actions>
     </v-card>

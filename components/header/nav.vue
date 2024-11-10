@@ -16,17 +16,17 @@
 const router = useRouter();
 const links = [
   {
-    name: "Главная",
+    name: "Home",
     url: "/",
     icon: "home",
   },
   {
-    name: "Сообщества",
+    name: "Communities",
     url: "/communities",
     icon: "account-group",
   },
   {
-    name: "Курсы",
+    name: "Courses",
     url: "/courses",
     icon: "school",
   },
@@ -36,12 +36,12 @@ const links = [
     icon: "frequently-asked-questions",
   },
   {
-    name: "Цены",
+    name: "Price",
     url: "/pricing",
     icon: "cash",
   },
   {
-    name: "Cвязь",
+    name: "Contact",
     url: "/contact-us",
     icon: "phone",
   },

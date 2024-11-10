@@ -14,7 +14,9 @@
       {{ community.name }}
     </h1>
 
-    <p class="mt-2 text-slate-500 capitalize">язык: {{ community.language }}</p>
+    <p class="mt-2 text-slate-500 capitalize">
+      language: {{ community.language }}
+    </p>
 
     <div class="flex mt-3 gap-2 -mx-2 items-center">
       <SubscribeButton

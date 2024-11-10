@@ -94,7 +94,7 @@
                       textColor="white"
                       prependIcon="mdi-pencil"
                     >
-                      Редактировать
+                      Edit
                     </UiButton>
                   </NuxtLink>
                   <CommunitySubscribeButton
@@ -114,7 +114,7 @@
                       class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
                       >{{ likesAmount }}</span
                     >
-                    <span class="text-sm text-blueGray-400">Лайки</span>
+                    <span class="text-sm text-blueGray-400">Likes</span>
                   </div>
                   <div class="mr-4 p-3 text-center">
                     <span
@@ -124,7 +124,7 @@
                           ? communityStore.community.posts.length
                           : 0
                       }}</span
-                    ><span class="text-sm text-blueGray-400">Посты</span>
+                    ><span class="text-sm text-blueGray-400">Posts</span>
                   </div>
                   <div class="lg:mr-4 p-3 text-center">
                     <span
@@ -134,7 +134,7 @@
                           ? communityStore.community.subscribers.length
                           : 0
                       }}</span
-                    ><span class="text-sm text-blueGray-400">Подписчики</span>
+                    ><span class="text-sm text-blueGray-400">Followers</span>
                   </div>
                 </div>
               </div>
@@ -153,7 +153,7 @@
                 class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold"
               >
                 <v-icon>mdi-account</v-icon>
-                Автор:
+                Author:
                 {{
                   communityStore.community.owner
                     ? communityStore.community.owner.nickname
@@ -164,7 +164,7 @@
                 class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold"
               >
                 <v-icon>mdi-map-marker-radius</v-icon>
-                Страна:
+                Country:
                 {{
                   communityStore.community.country
                     ? communityStore.community.country.name
@@ -173,18 +173,18 @@
               </div>
               <div class="mb-2 text-blueGray-600 mt-10">
                 <v-icon>mdi-translate</v-icon>
-                Язык: {{ communityStore.community.language }}
+                Language: {{ communityStore.community.language }}
               </div>
               <div class="mb-2 text-blueGray-600">
                 <v-icon>mdi-clock-time-eight</v-icon>
-                Сообщество создано: {{ formattedCreatedAt }}
+                Created At: {{ formattedCreatedAt }}
               </div>
             </div>
             <div class="mt-10 py-10 border-t border-blueGray-200">
               <div
                 class="text-xl leading-normal mt-0 mb-2 text-blueGray-700 font-bold"
               >
-                Описание
+                Description
               </div>
               <div class="flex flex-wrap">
                 <div class="w-full lg:w-9/12">
@@ -192,8 +192,7 @@
                     {{
                       communityStore.community.description
                         ? communityStore.community.description
-                        : `Здесь должно быть
-                    описание сообщества.`
+                        : `Here\'s description of the community'.`
                     }}
                   </p>
                 </div>
@@ -207,7 +206,7 @@
                     <div
                       class="text-xl leading-normal mt-0 mb-2 text-blueGray-700 font-bold"
                     >
-                      Посты
+                      Posts
                     </div>
                     <UiButton
                       class="w-fit"
@@ -216,7 +215,7 @@
                       :color="colors.SEAGREEN"
                       text-color="white"
                       @click="openDialog"
-                      >Создать пост</UiButton
+                      >Create Posts</UiButton
                     >
                   </div>
                   <div class="w-full flex flex-col gap-3 py-5">

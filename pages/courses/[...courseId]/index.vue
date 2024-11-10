@@ -5,7 +5,7 @@
       <v-card class="text-center" height="500">
         <v-card-text>
           <br />
-          <h1 class="text-lg font-bold">Материалы:</h1>
+          <h1 class="text-lg font-bold">Materials:</h1>
           <br />
           <div class="flex flex-col gap-6">
             <span
@@ -21,7 +21,7 @@
     </v-bottom-sheet>
     <LessonQuizDialog
       :question-payload="{
-        courseName: course ? course.name : 'Русский',
+        courseName: course ? course.name : 'Russian',
         keyWords: openedLesson ? openedLesson.keyWords : '',
         lessonDescription: openedLesson ? openedLesson.description : '',
         lessonName: openedLesson ? openedLesson.name : '',
@@ -36,11 +36,11 @@
       <h1
         class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl"
       >
-        Курс языка "{{ course?.name }}"
+        Course "{{ course?.name }}"
       </h1>
 
       <p class="max-w-2xl mx-auto my-6 text-center text-gray-500">
-        Проходите курс по списку!
+        Take the course step-by-step!
       </p>
       <div class="border-l-2 mt-10">
         <div
@@ -53,7 +53,7 @@
           ></div>
           <div class="w-10 h-1 bg-blue-300 absolute -left-10 z-0"></div>
           <div class="flex-auto">
-            <h1 class="text-lg">Урок {{ i + 1 }}</h1>
+            <h1 class="text-lg">Lesson {{ i + 1 }}</h1>
             <h1 class="text-xl font-bold">{{ lesson.name }}</h1>
             <h3>{{ lesson.description }}</h3>
           </div>
@@ -70,7 +70,7 @@
               color="#fff"
               prepend-icon="mdi-text-box"
             >
-              Материалы
+              Materials
             </UiButton>
             <UiButton
               @click="() => openQuiz(lesson)"
@@ -78,7 +78,7 @@
               color="#fff"
               prepend-icon="mdi-file-document-edit"
             >
-              Пройти тест
+              Take Quiz
             </UiButton>
           </div>
         </div>

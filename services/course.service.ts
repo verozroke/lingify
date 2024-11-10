@@ -11,14 +11,14 @@ export type CreateCoursePayload = {
 };
 
 export type CreateCourseAsTeacherPayload = {
-  courseLanguage: string,
-  nativeLanguage: string,
-  languageLevel: string,
-  avatarUrl: string,
-  description: string,
+  courseLanguage: string;
+  nativeLanguage: string;
+  languageLevel: string;
+  avatarUrl: string;
+  description: string;
   userId: string;
-  lessons: LessonInput[],
-}
+  lessons: LessonInput[];
+};
 
 class CourseService {
   baseUrl: string;
@@ -65,13 +65,19 @@ class CourseService {
     return data;
   }
 
-  async createCourseAsTeacher(body: CreateCourseAsTeacherPayload): Promise<Course> {
-    const { data } = await axios.post<Course>(`${this.baseUrl}/courses/as-teacher`, body, {
-      withCredentials: true,
-      headers: {
-        "Content-Type": "application/json",
+  async createCourseAsTeacher(
+    body: CreateCourseAsTeacherPayload,
+  ): Promise<Course> {
+    const { data } = await axios.post<Course>(
+      `${this.baseUrl}/courses/as-teacher`,
+      body,
+      {
+        withCredentials: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
       },
-    });
+    );
 
     return data;
   }

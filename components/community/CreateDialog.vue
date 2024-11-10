@@ -1,56 +1,56 @@
 <template>
   <v-dialog v-model="dialog" width="500px">
     <v-card :loading="isLoading" style="padding: 16px">
-      <v-card-title> Создать сообщество </v-card-title>
+      <v-card-title> Create community </v-card-title>
       <v-form @submit="createCommunity" class="p-4 flex flex-col gap-2">
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label="Название"
+          label="Name"
           v-model="inputs.name"
           :rules="rules.name"
-          placeholder="Введите название."
+          placeholder="Type name."
           type="text"
         />
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label="Язык"
+          label="Language"
           v-model="inputs.language"
           :rules="rules.language"
-          placeholder="Введите язык."
+          placeholder="Type your language."
           type="text"
         />
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label="Описание"
+          label="Description"
           v-model="inputs.description"
           :rules="rules.description"
-          placeholder="Напишите описание."
+          placeholder="Type your description."
           type="text"
         />
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label="URL Аватарки"
+          label="Image URL"
           v-model="inputs.avatarUrl"
           :rules="rules.avatarUrl"
-          placeholder="Введите URL аватарки."
+          placeholder="Type Image URL."
           type="text"
         />
         <UiInput
           :loading="isLoading"
           :disabled="isLoading"
           :color="colors.EMERALD"
-          label="URL Баннера"
+          label="Banner URL"
           v-model="inputs.bannerUrl"
           :rules="rules.bannerUrl"
-          placeholder="Введите URL баннера."
+          placeholder="Type Banner URL."
           type="text"
         />
         <v-select
@@ -71,7 +71,7 @@
           :color="colors.EMERALD"
           text-color="white"
           prepend-icon="mdi-account-multiple-plus"
-          >Создать</UiButton
+          >Create</UiButton
         >
         <UiButton
           :disable="isLoading"
@@ -81,7 +81,7 @@
           mode="tonal"
           color="red"
           prepend-icon="mdi-close"
-          >Закрыть</UiButton
+          >Close</UiButton
         >
       </v-card-actions>
     </v-card>
